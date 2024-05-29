@@ -1,3 +1,3 @@
-# This is my portfolio webpage
+# website with JS projects
 
-### Contact me at: jakobm.dev@gmail.com 📧
+
