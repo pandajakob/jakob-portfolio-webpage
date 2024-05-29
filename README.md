@@ -1,3 +1,3 @@
-# webpage with JS projects
+# website with JS projects
 
-### Contact: jakobm.dev@gmail.com 📧
+
