@@ -11,27 +11,38 @@
         <main>
             <div class="formContainer">
                 <form class="form">
+                
+                <div class="gridItem">
+
                     <label for="initInvestment">Initial Investment:</label><br>
-                    <input type="number" id="initInvestment" name="initInvestment"><br>
-                    <label for="montlyContribution">Monthly contribution:</label><br>
-                    <input type="number" id="montlyContribution" name="montlyContribution"><br>
+                    <input type="number" id="initInvestment" name="initInvestment" value="0" max="1000000000"><br>
+                </div>
+    
+                <div class="gridItem">
+                    <label for="monthlyContribution">Monthly contribution:</label><br>
+                    <input type="number" id="monthlyContribution" name="monthlyContribution" value="0"><br>
+                </div>
+                <div class="gridItem">
                     <label for="timeHorizon">Time horizon (years):</label><br>
-                    <input type="number" id="timeHorizon" name="timeHorizon"><br>
+                    <input type="number" id="timeHorizon" name="timeHorizon" min="1" max="100" value="10"><br>
+                </div>
+                <div class="gridItem">
                     <label for="interestRate">Estimated anual interest rate (%):</label><br>
                     <p id="rangeValue"> 0%</p> 
                     <input type="range" id="interestRate" name="interestRate" min="0" max="100" value="0" oninput="updateTextInput(this.value)">
-                    <button id="submitButton" type="button" value="Submit" onclick="addToTable()"> Submit </button>
-
+                </div>
+                    <button class="gridItem" type="button" id="calculateButton"onclick="addToTable()">Calculate</button>
                   </form>
             </div>
-            <table>
+            <div class="tableContainer">
+            <table class="resultsTable">
                 <tr>
                     <th> Year </th>
                     <th> Amount </th>
                   </tr>
              
               </table>
-
+            </div>
 
         </main>  
     </body>
