@@ -1,8 +1,11 @@
+
+
+let dataPoints = [];
+const tableElement = document.querySelector('table')
 const timeHorizon = document.getElementById("timeHorizon");
 const initialInvestment = document.getElementById("initInvestment");
 const monthlyContribution = document.getElementById("monthlyContribution")
 let yield = 0.0;
-const tableElement = document.querySelector('table')
 
 const updateTextInput = (value) => {
     document.getElementById("rangeValue").innerHTML = value + "%"
@@ -12,8 +15,8 @@ const updateTextInput = (value) => {
 }
 updateTextInput(0);
 
-function addToTable() {
-    tableElement.innerHTML = "<tr> <th> Year </th> <th> Amount </th> </tr>"
+const addDataPoints = () => {
+    dataPoints = [];
     let totalValue = parseFloat(initialInvestment.value);
     const yearlyContribution = parseFloat(monthlyContribution.value*12);
 
@@ -23,23 +26,38 @@ function addToTable() {
         } else {
             totalValue = totalValue*yield+yearlyContribution;
         }
-
-        let trElement = document.createElement('tr');
-
-        let yearElement = document.createElement('th');
-        yearElement.innerHTML = year;
-
-        let amountElement = document.createElement('th');
-        amountElement.innerHTML = "$"+Math.round(totalValue);
-
-        trElement.appendChild(yearElement)
-        trElement.appendChild(amountElement)
-        tableElement.appendChild(trElement)
+        const dataPoint = {
+            year: year,
+            value: totalValue
+        };
+        dataPoints.push(dataPoint);
     }
-
 };
+
+const addToTable = () => {
+    addDataPoints();
+    console.log(dataPoints);
+    tableElement.innerHTML = "<tr> <th> Year </th> <th> Amount </th> </tr>";
+
+    for (const dataPoint of dataPoints) {
+        let trElement = document.createElement('tr');
+        let yearElement = document.createElement('th');
+        yearElement.innerHTML = dataPoint.year;
+        let amountElement = document.createElement('th');
+        amountElement.innerHTML = "$" + Math.round(dataPoint.value);
+        trElement.appendChild(yearElement);
+        trElement.appendChild(amountElement);
+        tableElement.appendChild(trElement);
+    }
+};
+
+
+
+
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         addToTable();
     }
 });
+
+addDataPoints();
