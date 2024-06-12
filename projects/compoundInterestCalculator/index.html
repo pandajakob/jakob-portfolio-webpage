@@ -16,27 +16,26 @@
                 <form class="form">
                 
                 <div class="gridItem">
-
                     <label for="initInvestment">Initial Investment:</label><br>
-                    <input type="number" id="initInvestment" name="initInvestment" value="0" max="1000000000"><br>
+                    <input type="number" id="initInvestment" name="initInvestment" value="0" max="1000000000" oninput="addToTable()" placeholder="$"><br>
                 </div>
     
                 <div class="gridItem">
                     <label for="monthlyContribution">Monthly contribution:</label><br>
-                    <input type="number" id="monthlyContribution" name="monthlyContribution" value="0"><br>
+                    <input type="number" id="monthlyContribution" name="monthlyContribution" value="0" placeholder="$" oninput="addToTable()"><br>
                 </div>
                 <div class="gridItem">
                     <label for="timeHorizon">Time horizon (years):</label><br>
-                    <input type="number" id="timeHorizon" name="timeHorizon" min="1" max="100" value="10"><br>
+                    <input type="number" max="100" id="timeHorizon" name="timeHorizon" value="10" placeholder="years" oninput="addToTable()"><br>
                 </div>
                 <div class="gridItem">
                     <label for="interestRate">Estimated anual interest rate (%):</label><br>
-                    <p id="rangeValue"> 0%</p> 
-                    <input type="range" id="interestRate" name="interestRate" min="0" max="100" value="0" oninput="updateTextInput(this.value)">
+                    <input type="number" id="interestRate" name="interestRate" min="-100" max="100" value="0" oninput="addToTable()" placeholder="%">
                 </div>
                     <button class="gridItem" type="button" id="calculateButton"onclick="addToTable()">Calculate</button>
                   </form>
             </div>
+
             <div class="flexContainer">
             <div class="tableContainer">
             <table class="resultsTable">
@@ -54,7 +53,7 @@
             </div>
 
         </main>  
-        <script src ='script.js'> </script>
+        <script src='scripts.js'> </script>
 
     </body>
 

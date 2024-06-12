@@ -3,15 +3,9 @@ const tableElement = document.querySelector('table')
 const timeHorizon = document.getElementById("timeHorizon");
 const initialInvestment = document.getElementById("initInvestment");
 const monthlyContribution = document.getElementById("monthlyContribution")
+const yieldElement = document.getElementById("interestRate")
 let yield = 0.0;
 
-const updateTextInput = (value) => {
-    document.getElementById("rangeValue").innerHTML = value + "%"
-    yield = value/100+1;
-    console.log("year: " + timeHorizon.value);
-    console.log("initialInvestment: " + initialInvestment.value);
-}
-updateTextInput(0);
 
 
 let canvasElement = document.getElementById("canvasChart");
@@ -44,6 +38,7 @@ let pieChart = new Chart(pieCanvasElement, pieChartCfg)
 
 
 const addDataPoints = () => {
+    yield = parseFloat(yieldElement.value)/100+1;
     dataPoints = [];
     let totalValue = parseFloat(initialInvestment.value);
     const yearlyContribution = parseFloat(monthlyContribution.value*12);
@@ -83,8 +78,8 @@ const addToTable = () => {
     chart.update();
 
 
-    let totalInvestment = parseInt(timeHorizon.value)*parseInt(monthlyContribution.value)*12+parseInt(initialInvestment.value)
-    let totalInterest = parseInt(dataPoints[dataPoints.length-1].y - totalInvestment)
+    let totalInvestment = parseFloat(timeHorizon.value)*parseInt(monthlyContribution.value)*12+parseInt(initialInvestment.value)
+    let totalInterest = parseFloat(dataPoints[dataPoints.length-1].y - totalInvestment)
 
     console.log("max" + dataPoints[dataPoints.length-1].y)
     console.log("Tinv" + totalInvestment)
