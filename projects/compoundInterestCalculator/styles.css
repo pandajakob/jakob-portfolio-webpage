@@ -60,12 +60,10 @@ input {
 .tableContainer{
     border-radius: 10px;
     font-weight: 300;
-    margin: auto;
-    width: 25%;
-    margin: auto;
+    width: 18%;
     overflow-y: auto;
     display: block;
-    max-height: 500px;
+    max-height: 430px;
 }
 table {
     width: 100%;
@@ -78,6 +76,14 @@ th, td {
     padding: 10px;
 
 }
-
+.flexContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+canvas {
+    max-width: 36%;
+    max-height: 420px;
+}
 
 
