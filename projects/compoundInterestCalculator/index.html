@@ -5,7 +5,6 @@
         <title> Compound Interest Calculator</title>
         <link rel="stylesheet" href="styles.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-
         </head>
 
     <body>
@@ -17,44 +16,123 @@
                 
                 <div class="gridItem">
                     <label for="initInvestment">Initial Investment:</label><br>
-                    <input type="number" id="initInvestment" name="initInvestment" value="0" max="1000000000" oninput="addToTable()" placeholder="$"><br>
+                    <input type="number" id="initInvestment" name="initInvestment" value="0" max="1000000000" oninput="addToTable()" placeholder="$">
+                    <label class="unit">💰</label>
                 </div>
     
                 <div class="gridItem">
                     <label for="monthlyContribution">Monthly contribution:</label><br>
-                    <input type="number" id="monthlyContribution" name="monthlyContribution" value="0" placeholder="$" oninput="addToTable()"><br>
+                    <input type="number" id="monthlyContribution" name="monthlyContribution" value="0" placeholder="$" oninput="addToTable()">
+                    <label class="unit">💰</label>
                 </div>
                 <div class="gridItem">
                     <label for="timeHorizon">Time horizon (years):</label><br>
-                    <input type="number" max="100" id="timeHorizon" name="timeHorizon" value="10" placeholder="years" oninput="addToTable()"><br>
+                    <input type="number" max="100" id="timeHorizon" name="timeHorizon" value="10" placeholder="years" oninput="addToTable()">
+                    <label class="unit"> ⌛️</label>
                 </div>
                 <div class="gridItem">
-                    <label for="interestRate">Estimated anual interest rate (%):</label><br>
+                    <label for="interestRate" font-weight="500"> Estimated anual interest rate: </label><br>
                     <input type="number" id="interestRate" name="interestRate" min="-100" max="100" value="0" oninput="addToTable()" placeholder="%">
+                    <label class="unit">%</label>
                 </div>
-                    <button class="gridItem" type="button" id="calculateButton"onclick="addToTable()">Calculate</button>
-                  </form>
+                <div class="gridItem">
+                    <label for="taxRate">Tax rate:</label> <br>
+
+                    <label for="annualTax" class="unit"> Tax annually:  </label> 
+                    <input type="checkbox" id="annualTax" name="annualTax" oninput="addToTable()"><br>
+
+                    <input type="number" id="taxRate" name="taxRate" min="-100" max="100" value="0" oninput="addToTable()" placeholder="%">
+                    <label class="unit"> % </label>
+                    
+                </div>
+                </form>
             </div>
 
-            <div class="flexContainer">
-            <div class="tableContainer">
-            <table class="resultsTable">
-                <tr>
-                    <th> Year </th>
-                    <th> Amount </th>
-                  </tr>
-             
-              </table>
+            <div class="picker">
+                <button class="pickerButton" id="chartButton" onclick="setVisibility('chart')"> Chart</button>
+                <button class="pickerButton" id="tableButton" onclick="setVisibility('table')"> Table </button>
+                <button class="pickerButton" id="pieButton" onclick="setVisibility('pie')"> Pie</button>
             </div>
-            <canvas id="canvasChart">
-            </canvas>
-            <canvas id="pieChart">
-            </canvas>
+
+            <strong> <h3><p id="totalReturn"> Total Investment: 0 💰</p></strong> </h3>
+
+            <div class="flexContainer">
+
+                <table class="resultsTable">
+                    <tr>
+                        <th> Year </th>
+                        <th> Investment </th>
+                        <th> Interest </th>
+                        <th> Tax </th>
+                        <th> Balance </th>
+                    </tr>
+                    <tr>
+                        <td> - </td>
+                        <td> - </td>
+                        <td> - </td>
+                        <td> - </td>
+                        <td> - </td>
+                    </tr>
+                </table>
+
+                <canvas id="canvasChart">
+                </canvas>
+
+                <canvas id="pieChart">
+                </canvas>
             </div>
 
         </main>  
         <script src='scripts.js'> </script>
+        <script src='charts.js'> </script>
 
+        <script>
+            const setVisibility = (view) => {
+                const chartButton = document.getElementById('chartButton');
+                const tableButton = document.getElementById('tableButton');
+                const pieButton = document.getElementById('pieButton')
+
+                const chartElement = document.getElementById('canvasChart');
+                const tableElement = document.querySelector('table');
+                const pieElement = document.getElementById('pieChart');
+
+                console.log(view)
+
+                switch (view) {
+                    case 'chart':
+                        chartElement.style.opacity = '1';
+                        tableElement.style.opacity = '0';
+                        pieElement.style.opacity = '0';
+                        chartButton.style.backgroundColor = 'rgb(72, 149, 239, 0.8)'
+                        tableButton.style.backgroundColor = 'white'
+                        pieButton.style.backgroundColor = 'white'
+
+                        break;
+                    case 'table':
+                        tableElement.style.opacity = '1';
+                        chartElement.style.opacity = '0';
+                        pieElement.style.opacity = '0';
+                        tableButton.style.backgroundColor = 'rgb(72, 149, 239, 0.8)';
+                        chartButton.style.backgroundColor = 'white';
+                        pieButton.style.backgroundColor = 'white';
+
+
+
+                        break;
+                    case 'pie':
+                        pieElement.style.opacity = '1';
+                        chartElement.style.opacity = '0';
+                        tableElement.style.opacity = '0';
+
+                        pieButton.style.backgroundColor = 'rgb(72, 149, 239, 0.8)'
+                        chartButton.style.backgroundColor = 'white'
+                        tableButton.style.backgroundColor = 'white'
+                        
+                        break;
+                }
+            }
+           
+        </script>
     </body>
 
 
