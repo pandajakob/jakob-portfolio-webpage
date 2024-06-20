@@ -103,6 +103,11 @@
                         chartElement.style.opacity = '1';
                         tableElement.style.opacity = '0';
                         pieElement.style.opacity = '0';
+
+                        chartElement.style.zIndex = "1"
+                        pieElement.style.zIndex = "-1"
+                        tableElement.style.zIndex = "0"
+
                         chartButton.style.backgroundColor = 'rgb(72, 149, 239, 0.8)'
                         tableButton.style.backgroundColor = 'white'
                         pieButton.style.backgroundColor = 'white'
@@ -112,6 +117,11 @@
                         tableElement.style.opacity = '1';
                         chartElement.style.opacity = '0';
                         pieElement.style.opacity = '0';
+
+                        pieElement.style.zIndex = "0"
+                        chartElement.style.zIndex = "-1"
+                        tableElement.style.zIndex = "1"
+
                         tableButton.style.backgroundColor = 'rgb(72, 149, 239, 0.8)';
                         chartButton.style.backgroundColor = 'white';
                         pieButton.style.backgroundColor = 'white';
@@ -123,6 +133,10 @@
                         pieElement.style.opacity = '1';
                         chartElement.style.opacity = '0';
                         tableElement.style.opacity = '0';
+                        
+                        pieElement.style.zIndex = "1"
+                        chartElement.style.zIndex = "-1"
+                        tableElement.style.zIndex = "0"
 
                         pieButton.style.backgroundColor = 'rgb(72, 149, 239, 0.8)'
                         chartButton.style.backgroundColor = 'white'
