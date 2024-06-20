@@ -17,7 +17,7 @@ const GameField = Object.freeze({
 
 
 
-let gameFields = Object.values(GameField); // Now fieldIDs contains all the elements
+let gameFields = Object.values(GameField); 
 
 let winningCombinations = [
     [GameField.a1, GameField.a2, GameField.a3],
