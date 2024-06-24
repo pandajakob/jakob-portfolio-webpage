@@ -1,95 +1,80 @@
-
 html {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    cursor: url("resources/X.png"), auto;
+    font-family: "Covered By Your Grace", cursive;
     transition: all 0.3s;
 }
+
+:root {
+    --textColor: #FF8552;
+    --bgColor: #E6E6E6;
+    --borderColor: #39393A;
+    --darkBG: #39393a32;
+
+}
+body {
+    background-color: var(--bgColor);
+}
 main {
-display: flex;
-justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 header {
     text-align: center;
     width: 100%;
 }
-header h1 {
+h1 {
     margin: 2%;
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--textColor);
 }
-footer {
-    text-align: center;
-}
-.grid {
+
+#gameboard {
     margin: 2%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     height: 600px;
     width: 600px;
-    border: 3px solid black;
-    border-radius: 3px;
+    border-collapse:collapse;
+    color: var(--textColor);
+    box-shadow: 5px 5px 5px 6px rgb(0, 0, 0, 0.1);
+
 
 }
 * {
     margin: 0;
 }
 
-.grid div {
-    border: 3px solid black;
-    width: 194px;
-    height: 194px;
+.box {
+    border-collapse:collapse;
     align-content: center;
     text-align: center;
     cursor: pointer;
-    background-size:80%;
-    background-position-x: center;
-    background-position-y: center;
-    background-repeat: no-repeat;
-}
+    font-size: 9rem;
+    border-bottom: 1.5px solid var(--borderColor);
+    border-right: 1.5px solid var(--borderColor);
+    transition: 0.25s;
 
-.turn-display {
-    width: 150px;
-    height: 35px;
-    display: inline-flex;
-    background-color: whitesmoke;
-    border-radius: 20px;
-    align-items: center;
-    transition: all 0.3s;
-}
-
-#x, #o {
-    width: 100px;
-    border-radius: 20px;
-    height: 35px;
-    align-content: center;
-    transition: all 0.3s;
 
 
 }
 
-.turn-display #x {
-    border-radius: 20px;
-    background-color: rgb(243, 243, 243);
-
+.box:nth-child(3n) {
+    border-right: none;
+}
+.box:nth-child(6) ~ .box {
+    border-bottom: none;
 }
 
-.turn-display #x {
-    border-radius: 20px;
-    background-color: lightgray;
-}
-
-a {
-    text-decoration: none;
-}
 
 #scoreboard {
     display: inline-flex;
     justify-items: flex-start;
-    font-weight: bold;
+    font-size: 1.8rem;
     width: 600px;
-
-
+    color: var(--borderColor);
 }
-#scoreboard p {
-padding: 2% 2% 0 0;
 
+#scoreboard p {
+    padding: 2% 2% 0 0;
 }

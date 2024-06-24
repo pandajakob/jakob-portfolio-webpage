@@ -1,159 +1,197 @@
-let image = "url(resources/X.png)";
-const turnEnum = Object.freeze({
-    X: "url(resources/X.png)",
-    O: "url(resources/O.png)"
-});
-const GameField = Object.freeze({
-    a1: document.getElementById("a1"),
-    a2: document.getElementById("a2"),
-    a3: document.getElementById("a3"),
-    b1: document.getElementById("b1"),
-    b2: document.getElementById("b2"),
-    b3: document.getElementById("b3"),
-    c1: document.getElementById("c1"),
-    c2: document.getElementById("c2"),
-    c3: document.getElementById("c3"),
-});
+let boxes = Array.from(document.getElementsByClassName("box"));
+let X_Text = "X";
+let O_Text = "O";
+let spaces = Array(9).fill(null);
 
+let currentPlayer = X_Text;
 
-
-let gameFields = Object.values(GameField); 
-
-let winningCombinations = [
-    [GameField.a1, GameField.a2, GameField.a3],
-    [GameField.a1, GameField.b2, GameField.c3],
-    [GameField.a1, GameField.b1, GameField.c1],
-    [GameField.a2, GameField.b2, GameField.c2],
-    [GameField.a3, GameField.b3, GameField.c3],
-    [GameField.b1, GameField.b2, GameField.b3],
-    [GameField.c1, GameField.c2, GameField.c3],
-    [GameField.c1, GameField.b2, GameField.a3]
+const winningCombos = [
+    [0, 1, 2],
+    [0, 4, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 4, 5],
+    [6, 7, 8],
+    [6, 4, 2]
 ];
 
-let turn = turnEnum.X;
-
-let playerScoreElement = document.getElementById("playerScore")
-let computerScoreElement = document.getElementById("computerScore")
+const playerScoreElement = document.getElementById("playerScore")
+const computerScoreElement = document.getElementById("computerScore")
 let computerScore = 0;
 let playerScore = 0;
 
-let gameInProgress = false;
+function boxClicked(e) {
 
+    const id = e.target.id;
+    if (!spaces[id] && currentPlayer === X_Text) {
+        spaces[id] = currentPlayer;
+        e.target.innerHTML = currentPlayer;
+        currentPlayer = currentPlayer == X_Text ? O_Text : X_Text;
+        if (validateGame) {
+            setTimeout(playComputerTurn, 200);
+        }
+    }
+    console.log("spaces", spaces)
 
-// adds eventListeners for each gameField
-gameFields.forEach(field => {
-    field.addEventListener("click", function(){
-        if (field.style.backgroundImage.length === 0 && turn === turnEnum.X) {
-            field.style.backgroundImage = turnEnum.X;
-            gameInProgress = true;
-            validateGame();
-            if (gameInProgress) {
-            turn = turnEnum.O
-            updateTurnUI();
-            setTimeout(computerTurn, 500);
-            }
-        };
-    });
+};
+
+boxes.forEach(box => {
+    box.addEventListener("click",  boxClicked)
 });
-
-const updateTurnUI = () => {
-    if (turn === turnEnum.O) {
-        image = "url(resources/O.png)"
-        o.style.backgroundColor = "gainsboro"
-        x.style.backgroundColor = "whitesmoke"
-
-    } else if (turn === turnEnum.X) {
-        image = "url(resources/X.png)"
-        x.style.backgroundColor = "lightgray"
-        o.style.backgroundColor = "whitesmoke"
-    }
-}
-
-
-const computerTurn = () => {
-    let emptyFields = [];
-    let emptyDefendingFields = [];
-    let emptyWinningFields = [];
-
-    let OFields = gameFields.filter((field) => field.style.backgroundImage.includes("O"));
-    let XFields = gameFields.filter((field) => field.style.backgroundImage.includes("X"));
-
-    gameFields.forEach(field => {
-        if (field.style.backgroundImage.length == 0) {
-            emptyFields.push(field)
-        }
-    })
-
-    winningCombinations.forEach(comb => {
-        if (OFields.includes(comb[0]) && OFields.includes(comb[1]) && emptyFields.includes(comb[2])) {
-            emptyWinningFields.push(comb[2])
-        } else if (OFields.includes(comb[1]) && OFields.includes(comb[2]) && emptyFields.includes(comb[0])) {
-            emptyWinningFields.push(comb[2])
-        }
-        else if (OFields.includes(comb[0]) && OFields.includes(comb[2]) && emptyFields.includes(comb[1])) {
-            emptyWinningFields.push(comb[2])
-        } else if (XFields.includes(comb[0]) && XFields.includes(comb[1]) && emptyFields.includes(comb[2])) {
-            emptyDefendingFields.push(comb[2])
-        } else if (XFields.includes(comb[1]) && XFields.includes(comb[2]) && emptyFields.includes(comb[0])) {
-            emptyDefendingFields.push(comb[2])
-        }
-        else if (XFields.includes(comb[0]) && XFields.includes(comb[2]) && emptyFields.includes(comb[1])) {
-            emptyDefendingFields.push(comb[2])
-        }
-    }) 
-
-    if(emptyWinningFields.length === 0) {
-        const randomUnusedField = emptyFields[Math.floor(Math.random()*emptyFields.length)];
-        randomUnusedField.style.backgroundImage = turnEnum.O;
-    } else if (emptyDefendingFields.length !== 0) {
-        emptyDefendingFields[0].style.backgroundImage = turnEnum.O;
-    }
-    else {
-        emptyWinningFields[0].style.backgroundImage = turnEnum.O;
-    }
-    turn = turnEnum.X;
-    updateTurnUI();
-    validateGame();
-
-};
-
-const validateGame = () => {
-    let XFields = gameFields.filter((field) => field.style.backgroundImage.includes("X"));
-    let OFields = gameFields.filter((field) => field.style.backgroundImage.includes("O"));
-
-   winningCombinations.forEach(comb => {
-
-    if (XFields.includes(comb[0]) && XFields.includes(comb[1]) && XFields.includes(comb[2])) {
-        console.log("x-win");
-
-        setTimeout(restartGame, 500);
-        playerScore++;
-        gameInProgress = false;
-
-    } else if (OFields.includes(comb[0]) && OFields.includes(comb[1]) && OFields.includes(comb[2])) {
-        console.log("o-win")
-        setTimeout(restartGame, 500);
-        computerScore++;
-        gameInProgress = false;
-
-    } else if (XFields.length + OFields.length === 9) {
-        console.log("tie")
-        setTimeout(restartGame, 500);
-        gameInProgress = false;
-
-    } else {
-        console.log("no winner yet")
-    }
-   })
-
-
-};
 
 
 const restartGame = () => {
-    gameFields.forEach(field => { 
-        field.style.backgroundImage = ""
+    spaces.fill(null);
+    boxes.forEach(box => { 
+        box.innerHTML = "";
+        box.style.backgroundColor =  "var(--bgColor)"
     })
     playerScoreElement.innerHTML = playerScore;
     computerScoreElement.innerHTML = computerScore;
+    currentPlayer = X_Text;
+}
+
+
+// adds eventListeners for each gameField
+const playComputerTurn = () => {
+    let freeSpaces = getFreeSpaces(spaces);
+    
+    if (freeSpaces.length > 1) {
+        const i = minimax(freeSpaces);
+        if (i !== null) {
+        boxes[i].innerHTML = O_Text;
+        spaces[i] = O_Text;
+        currentPlayer = X_Text;
+        }
+    }
+    validateGame();
+};
+
+const validateGame = () => {
+    let gameContinues = true;
+    winningCombos.some(combo => {
+        let [a, b, c] = combo;
+        if (spaces[a] && spaces[a] === spaces[b] && spaces[a] === spaces[c]) {
+            showWinningCombo(combo);
+            spaces[a] === X_Text ? playerScore++ : computerScore++;
+            setTimeout(() => {window.alert(`${spaces[a]} wins!`)
+            restartGame();
+            }, 100)
+            gameContinues = false;
+            return true
+        } else if (!spaces.includes(null)) {
+            setTimeout(() => {window.alert(`Tie`)
+            restartGame();
+            }, 100)
+            gameContinues = false;
+            return true
+        }
+        return false
+    })
+
+    return gameContinues;
+};
+
+const showWinningCombo = (combo) => {
+    combo.forEach(i => {
+        boxes[i].style.backgroundColor = "var(--darkBG)";
+    }) 
+}
+
+const checkGame = (spaces) => {
+    let rating = 0;
+    winningCombos.forEach(combo => {
+        let [a, b, c] = combo;
+
+        if (spaces[a] && spaces[a] === spaces[b] && spaces[a] === spaces[c]) {
+           let winner = spaces[a] === X_Text ? rating = -1 : rating = 1;
+            console.log("winner",winner)
+        }
+    })
+    return rating
+}
+
+const idOfMax = (array) => {
+    let max = Math.max(...array);
+    console.log("max", max)
+    let maxIndex = array.indexOf(max);
+    console.log("maxIndex", maxIndex)
+
+    return maxIndex;
+
+}
+
+const getFreeSpaces = (array) => {
+
+    let freeSpaces = []
+    array.forEach((space, i) => {
+        if (!space) {
+            freeSpaces.push(i)
+        }
+    })
+
+    return freeSpaces;
+
+}
+
+
+const goThrough = (array) => {
+    for (let i = 0; i < array.length; i++) {
+
+    }
+}
+
+const minimax = (freeSpaces) => {
+    let returnID = null;
+    let testSpaces = []
+    spaces.forEach(space => {
+        testSpaces.push(space)
+    }) 
+
+
+    let optionRating = [];
+
+
+    for (let i1 = 0; i1 < freeSpaces.length; i1++) {
+        console.log("")
+        let ratings = []
+        
+        testSpaces[freeSpaces[i1]] = O_Text;
+        
+        console.log("Test space for O:", freeSpaces[i1]);
+       
+       
+        let newFreeSpaces = getFreeSpaces(testSpaces);
+
+        console.log("newfreespaces", newFreeSpaces);
+            if (newFreeSpaces.length > 1) {
+                for (let i2 = 0; i2 < newFreeSpaces.length; i2++) {
+                    console.log("Test space for X:", newFreeSpaces[i2]);
+                    testSpaces[newFreeSpaces[i2]] = X_Text;
+                    ratings.push(checkGame(testSpaces))
+                    testSpaces[newFreeSpaces[i2]] = null;
+                }
+                optionRating.push(Math.min(...ratings));
+            } else {
+                optionRating.push(checkGame(testSpaces))
+            }
+        console.log("ratings: ", ratings);
+      
+        ratings = [];
+        testSpaces[freeSpaces[i1]] = null;
+    }
+
+    console.log("optionRating", optionRating)
+
+    console.log("testspaces", testSpaces)
+
+    let id = idOfMax(optionRating);
+
+    returnID = freeSpaces[id];
+
+    console.log("minimax", returnID)
+
+    return returnID;
+    
 }
