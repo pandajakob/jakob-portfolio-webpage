@@ -1,6 +1,10 @@
 html {
     font-family: "Covered By Your Grace", cursive;
     transition: all 0.3s;
+    font-size: 16;
+}
+* {
+    margin: 0;
 }
 
 :root {
@@ -19,7 +23,6 @@ main {
 }
 header {
     text-align: center;
-    width: 100%;
 }
 h1 {
     margin: 2%;
@@ -33,17 +36,15 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    height: 600px;
-    width: 600px;
+    aspect-ratio: 1/1;
+    width: 37%;
+    min-width: 39rem;
     border-collapse:collapse;
     color: var(--textColor);
     box-shadow: 5px 5px 5px 6px rgb(0, 0, 0, 0.1);
+}
 
 
-}
-* {
-    margin: 0;
-}
 
 .box {
     border-collapse:collapse;
@@ -54,11 +55,15 @@ h1 {
     border-bottom: 1.5px solid var(--borderColor);
     border-right: 1.5px solid var(--borderColor);
     transition: 0.25s;
-
-
-
 }
-
+@media screen and (max-width: 800px){
+    #gameboard {
+        min-width: 90%;
+    }
+    .box {
+        font-size: 6rem;
+    }
+}
 .box:nth-child(3n) {
     border-right: none;
 }
@@ -71,7 +76,7 @@ h1 {
     display: inline-flex;
     justify-items: flex-start;
     font-size: 1.8rem;
-    width: 600px;
+    width: 37%;
     color: var(--borderColor);
 }
 
