@@ -10,9 +10,6 @@ p {
  color: black;
 }
 
-main {
-    margin: 0 2%;
-}
 body {
 
 }
@@ -39,11 +36,10 @@ body {
 }
 .projectSection a {
     text-decoration: none;
-    width: 21%;
+    width: 29%;
     margin: 2%;    
     border-radius: 5px;
-
-
+    height: auto;
 
 }
 .project h2 {
@@ -60,8 +56,18 @@ body {
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
     text-align: center;
+    align-content: center;
 
+}
 
+@media screen and (max-width: 1000px) {
+    .projectSection {
+        justify-content: center;
+    } 
+    .projectSection a {
+        width: 100%;
+        height: auto;
+    } 
 }
 
 
