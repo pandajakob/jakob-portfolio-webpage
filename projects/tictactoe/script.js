@@ -3,8 +3,35 @@ let X_Text = "X";
 let O_Text = "O";
 let spaces = Array(9).fill(null);
 
+const diffElements = Array.from(document.getElementsByClassName("pickerButton"));
+let difficulty = 2;
+
+diffElements.forEach(e => {
+    e.addEventListener("click", setDifficulty)
+})
+
+function setDifficulty(e) {
+    const id = e.target.id;
+    if (id === "diff1") {
+        difficulty = 2;
+    }
+    else if (id === "diff2") {
+        difficulty = 4;
+    }
+    else if (id === "diff3") {
+        difficulty = 8;
+    }
+    diffElements.forEach(element => {
+        element.style.backgroundColor = "gainsboro";
+    })
+
+    document.getElementById(id).style.background = 'var(--darkBG)';
+
+
+   console.log("difficulty set to", difficulty)
+};
+
 let currentPlayer = X_Text;
-let difficulty = 3
 const winningCombos = [
     [0, 1, 2],
     [0, 4, 8],
@@ -34,11 +61,15 @@ function boxClicked(e) {
 
     }
     console.log("spaces", spaces)
+    console.log("diff", difficulty)
+
 };
 
 boxes.forEach(box => {
     box.addEventListener("click", boxClicked)
+    
 });
+
 
 
 const restartGame = () => {
@@ -90,23 +121,18 @@ const checkGame = (gamespaces) => {
     return game ;
 }
 
-
 const playComputerTurn = () => {
     if (checkGame(spaces)) {
 
         let children = getChildren(spaces, O_Text);
-        console.log("children", getChildren(spaces, currentPlayer))
         
         let minimaxArray = []
 
         children.forEach(child => {
-            console.log("child", child)
             minimaxArray.push(minimax(child, difficulty, X_Text));
         })
 
         let maxEval = Math.max(...minimaxArray)
-
-        console.log('maxeval', maxEval)
 
         let indicesOfMaxEval = minimaxArray.map((item, index) => {
             if (item == maxEval) {
@@ -119,7 +145,6 @@ const playComputerTurn = () => {
         let i = indicesOfMaxEval[Math.floor(Math.random()*indicesOfMaxEval.length)];
        
 
-        console.log("i", i)
 
         let bestChoice = children[i];
         

@@ -74,12 +74,36 @@ h1 {
 
 #scoreboard {
     display: inline-flex;
-    justify-items: flex-start;
+    justify-items: center;
     font-size: 1.8rem;
-    width: 37%;
     color: var(--borderColor);
 }
 
 #scoreboard p {
     padding: 2% 2% 0 0;
+}
+
+.picker {
+    display: flex;
+    text-align: center;
+    padding-left: 5%;
+}
+.picker button {
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    color: black;
+    font-family: "Covered By Your Grace", cursive;
+    font-size: 1rem;
+    padding: 4% 1.2rem;
+    border-radius: 2px;
+    border: 1px solid black;
+    margin: 2px;
+    margin-left: 2%;
+    background-color: gainsboro;
+    transition: all 0.2s;
+
+}
+.picker button:hover {
+    background-color: var(--darkBG);
 }
