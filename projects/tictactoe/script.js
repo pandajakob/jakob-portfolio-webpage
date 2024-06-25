@@ -4,7 +4,7 @@ let O_Text = "O";
 let spaces = Array(9).fill(null);
 
 let currentPlayer = X_Text;
-
+let difficulty = 3
 const winningCombos = [
     [0, 1, 2],
     [0, 4, 8],
@@ -78,47 +78,54 @@ const checkGame = (gamespaces) => {
     winningCombos.some(combo => {
         let [a, b, c] = combo;
         if (gamespaces[a] && gamespaces[a] === gamespaces[b] && gamespaces[a] === gamespaces[c]) {
-            // let winner = spaces[a] === X_Text ? rating = -1 : rating = 1;
             game = false;
-            return true
-        } else if (getFreeSpaces(gamespaces).length === 0) {
-            game = false;
-            return true
+            return true;
         }
-        return false
-    })
-    return game;
+    });
+
+    if (game && getFreeSpaces(gamespaces).length === 0) {
+        game = false;
+    }
+
+    return game ;
 }
+
 
 const playComputerTurn = () => {
     if (checkGame(spaces)) {
-        let freeSpaces = getFreeSpaces(spaces);
-
-
 
         let children = getChildren(spaces, O_Text);
         console.log("children", getChildren(spaces, currentPlayer))
+        
         let minimaxArray = []
 
         children.forEach(child => {
             console.log("child", child)
-            minimaxArray.push(minimax(child, 6, X_Text));
+            minimaxArray.push(minimax(child, difficulty, X_Text));
         })
-        let i = minimaxArray.indexOf(Math.max(...minimaxArray));
+
+        let maxEval = Math.max(...minimaxArray)
+
+        console.log('maxeval', maxEval)
+
+        let indicesOfMaxEval = minimaxArray.map((item, index) => {
+            if (item == maxEval) {
+                return index;
+            }
+        }).filter(index => index != undefined)
+
+        console.log('maxeval indexes', indicesOfMaxEval)
+
+        let i = indicesOfMaxEval[Math.floor(Math.random()*indicesOfMaxEval.length)];
+       
+
         console.log("i", i)
+
         let bestChoice = children[i];
         
         console.log("best choice", bestChoice)
 
         console.log("minimaxarray", minimaxArray)
-
-        /*
-        if (i) {
-            boxes[i].innerHTML = O_Text;
-            spaces[i] = O_Text;
-            currentPlayer = X_Text;
-        } 
-            */
 
         bestChoice.forEach((field, index) => {
             boxes[index].innerHTML = field;
@@ -147,7 +154,6 @@ const getChildren = (gameSpaces, player) => {
     }
     // console.log("Children", array)
     return array;
-
 }
 
 
@@ -156,22 +162,19 @@ const evaluate = (gamespaces) => {
     winningCombos.forEach(combo => {
         let [a, b, c] = combo;
         if (gamespaces[a] && gamespaces[a] === gamespaces[b] && gamespaces[a] === gamespaces[c]) {
-            gamespaces[a] == X_Text ? rating = -Infinity : rating = Infinity;
-        } else if (!spaces.includes(null)) {
-            rating = 0
+            rating = (gamespaces[a] === X_Text) ? -Infinity : Infinity;
         }
-    })
+    });
     return rating;
 }
+
 
 const minimax = (currentSpaces, depth, player) => {
     // console.log("depth", depth)
     let children = getChildren(currentSpaces, player);
 
     if (depth === 0 || !checkGame(currentSpaces)) {
-        let evaluation = evaluate(currentSpaces);
-        console.log("eval player", evaluation, player)
-        return evaluation;
+        return  evaluate(currentSpaces);
     } 
         if (player === O_Text) {
             let maxEval = -Infinity;
