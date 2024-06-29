@@ -1,0 +1,134 @@
+:root {
+    --bg: #EBD8D0; 
+    --bg2: #f5ebe0;
+    --secondary: #f7f7f7a9; 
+    --fontColor: #32292f;
+
+}
+
+* {
+    margin: 0;
+}    
+html { 
+    scroll-behavior: smooth; 
+    font-size: 14px;
+}
+
+body {
+    background-color: var(--bg);
+    text-align: center;
+    font-family: "Rock Salt", cursive;
+    color: var(--fontColor);
+
+}
+
+
+
+.header {
+    border-bottom: 0.1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 5fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    text-align: center;
+    padding: 0 2%;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg);
+}
+.top-section {
+     margin: 18% 0 12% 0 ;
+}  
+a {
+    cursor: pointer;
+    text-align: center;
+    margin: 0 2%;
+    min-width: 100px;
+    text-decoration: none;
+    color: var(--fontColor);
+}
+a:hover {
+    text-decoration: underline;
+}
+
+#pizzaman-png {
+width: 70px;
+padding: 5px;
+}
+
+ul {
+    list-style: none;
+    margin: 2%;
+
+}
+#åbningstider {
+    margin: 10%;
+}
+
+#kontakt {
+    margin: 10%;
+}
+
+#menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.pizza {
+    margin: 5% 8%;
+    padding: 7%;
+    border-radius: 5px;
+    transition: all 0.2s;
+    transition-timing-function: ease-in-out;
+
+}
+.pizza:hover {
+    border-color: black;
+
+}
+.pizza img {
+    width: 80%;
+    padding: 10% 0;
+
+}
+
+button {
+    cursor: pointer;
+    width: 100%;
+
+    margin-top: 10%;
+    font-family: "Rock Salt", cursive;
+    font-size: 1.2rem;
+    background-color: var(--secondary);
+    border: 1.4px solid var(--fontColor);
+    border-radius: 2px;
+
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.034);
+    transition: all 0.3;
+
+} 
+button:hover {
+    font-weight: bold;
+}
+
+button:active {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+
+
+}
+
+@media screen and (max-width: 800px) {
+    #menu {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    
+    } 
+    html {
+        font-size: 12px;
+    }
+}
+
