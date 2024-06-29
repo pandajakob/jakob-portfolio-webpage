@@ -39,8 +39,27 @@ body {
     background-color: var(--bg);
 }
 .top-section {
-     margin: 18% 0 12% 0 ;
+    height: 600px;
+     min-height: 300px;
+     display: flex;
+     align-content: center;
+     flex-wrap: wrap;
+     justify-content: center;
+     
+
 }  
+.top-section h1 {
+    position: absolute;
+    top: 32%;
+    width: 100%;
+}
+.top-section p {
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+
+}
 a {
     cursor: pointer;
     text-align: center;
@@ -54,8 +73,8 @@ a:hover {
 }
 
 #pizzaman-png {
-width: 70px;
-padding: 5px;
+    width: 70px;
+    padding: 5px;
 }
 
 ul {
@@ -63,12 +82,16 @@ ul {
     margin: 2%;
 
 }
-#åbningstider {
-    margin: 10%;
-}
 
 #kontakt {
     margin: 10%;
+    min-height: 100px;
+
+}
+#åbningstider {
+    min-height: 200px;
+    margin-bottom: 100px;
+
 }
 
 #menu {
@@ -129,6 +152,9 @@ button:active {
     } 
     html {
         font-size: 12px;
+    }
+    .top-section {
+        height: 500px;
     }
 }
 
