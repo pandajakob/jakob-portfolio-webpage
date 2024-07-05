@@ -12,15 +12,22 @@
             <h1> Dodge the red blocks</h1>
 
             <div id="game-container">
-            <canvas id="gameboard" width="500" height="500">
-
-
-            </canvas>
-
-            <p> score </p>
-            <p id="score"> 0 </p>
+                <canvas id="gameboard" width="550" height="550"> </canvas>
+                <p> score </p>
+                <p id="score"> 0 </p>
+                
+                <div id="gameOver">
+                    <h2> Game Over! </h2>
+                    <p> Score </p>
+                    <p id="gameOverScore"> 0 </p>
+                    <button id="startGameBtn"> Restart </button>
+                </div>
 
             </div>
+            <div style="display:none;">
+                <img id="alien" src="ressources/alien.png" width="20" height="20" />
+              </div>
+
 
     </body>
     <script type="module" src="scripts.js"> </script>

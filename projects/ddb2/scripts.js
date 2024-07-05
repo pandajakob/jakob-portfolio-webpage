@@ -1,7 +1,8 @@
 const gameboard = document.getElementById("gameboard");
-const ctx = gameboard.getContext("2d");
+let ctx = gameboard.getContext("2d");
 const scoreText = document.getElementById("score");
-
+const gameOver = document.getElementById("gameOver");
+const startGameBtn = document.getElementById("startGameBtn");
 let width = gameboard.width;
 let height = gameboard.height;
 
@@ -12,127 +13,151 @@ const background = "white";
 const playerColor = "black";
 const enemyColor = 'red';
 const unitSize = 20;
-let speed = 2;
+let speed = 1;
 let running = false;
 let score = 0;
 
 let velX = 0;
 let velY = 0
 
+
+let enemies = []
+
+
+
 window.addEventListener("keydown", changeDirection);
+startGameBtn.addEventListener("click", resetGame);
 
-function gameStart(){ 
-    drawEnemies();
-    drawPlayer();
+function gameStart() {
+    gameOver.style.visibility = "hidden";
+    running = true;
 
-    setInterval(()=> {
-        score += 1*speed;
-        scoreText.innerText = `${score}`
-    }, 100)
-
-    setInterval(()=> {
+    if (running) {
         drawEnemies();
-        speed += 1;
-    }, 10000)
+        drawPlayer();
 
+        setInterval(() => {
+            if (running) {
+                score += speed**1.01;
+                score = Math.floor(score)
+                scoreText.innerText = `${score}`
+            }
+        }, 50)
+        let interval = 5000*speed;
+        setInterval(() => {
+            if (running) {
+                drawEnemies();
+                speed += 0.1/enemies.length;
+                console.log("speed", speed)
+            }
+        }, 7000)
+
+    };
 };
 gameStart();
-function changeDirection(evt) { 
-   
-  switch (evt.keyCode) {
-    case 37: //left
-        velX = -1;
-        velY = 0;
-        break;
-    case 38:  //up
-        velY = -1;
-        velX = 0;
-        break;
-    case 39: //right
-        velX = 1;
-        velY = 0;
-        break;
-    case 40: //down
-        velY = 1;
-        velX = 0;
-        break;
-    } 
-  
-   
+function changeDirection(evt) {
+    switch (evt.keyCode) {
+        case 37: //left
+            velX = -1;
+            velY = 0;
+            break;
+        case 38:  //up
+            velY = -1;
+            velX = 0;
+            break;
+        case 39: //right
+            velX = 1;
+            velY = 0;
+            break;
+        case 40: //down
+            velY = 1;
+            velX = 0;
+            break;
+    }
 };
 
 
-function clearBoard() { 
-    ctx.fillstyle = background;
+function clearBoard() {
+    ctx.fillStyle = background;
     ctx.fillRect(0, 0, width, height)
-
 };
 
 function drawPlayer() {
     ctx.fillStyle = playerColor;
     ctx.fillRect(playerX, playerY, unitSize, unitSize)
 
-    setInterval(()=>{
         ctx.clearRect(playerX, playerY, unitSize, unitSize)
-        if ((playerX > width-unitSize && velX == 1) || playerX <= 0 && velX == -1) {
+        if ((playerX > width - unitSize && velX == 1) || playerX <= 0 && velX == -1) {
             velX = 0;
-        } 
-        if ((playerY > height-unitSize && velY == 1) || playerY <= 0 && velY == -1) {
+        }
+        if ((playerY > height - unitSize && velY == 1) || playerY <= 0 && velY == -1) {
             velY = 0;
-        } 
-        playerY += velY;
-        playerX += velX;
+        }
+        playerY += velY*speed;
+        playerX += velX*speed;
+        
         ctx.fillStyle = playerColor;
         ctx.fillRect(playerX, playerY, unitSize, unitSize)
-    },2)
 };
 
 
 
-function drawEnemies() { 
-    const randomWidth = Math.floor(Math.random()*(width-2*unitSize)) + 2*unitSize;
-    const randomHeight = Math.floor(Math.random()*(height-2*unitSize)) + 2*unitSize;
+function drawEnemies() {
+    const randomWidth = Math.floor(Math.random() * (width-2*unitSize)) + unitSize;
+    const randomHeight = Math.floor(Math.random() * (height-2*unitSize)) +  unitSize;
 
-    let enemyX = randomWidth;
-    let enemyY = randomHeight;
+    let randomDirX = Math.random() * 2 - 1;
+    let randomDirY = Math.random() * 2 - 1;
 
-    let randomDirX = Math.floor(Math.random()*3) - 1;
-    let randomDirY =  Math.floor(Math.random()*3) - 1;
+    const newEnemy = { x: randomWidth, y: randomHeight, dirX: randomDirX, dirY: randomDirY}
 
-    if (randomDirX && randomDirY == 0) {
-        randomDirY = -1;
-    }   
-    ctx.fillStyle = enemyColor;
-    ctx.fillRect(enemyX, enemyY, unitSize, unitSize)
-
-    setInterval(()=> {
-        ctx.clearRect(enemyX, enemyY, unitSize, unitSize);
+    
+    setInterval(() => {
         ctx.fillStyle = enemyColor;
+    ctx.fillRect(newEnemy.x, newEnemy.y, unitSize, unitSize)
+    
+    }, 1);
 
-        if (enemyX > (width-unitSize) || enemyX < (0)) {
-            randomDirX = randomDirX === 1 ? -1 : 1;
-        } 
-
-        if (enemyY > (height-unitSize) || enemyY < (0)) {
-            randomDirY = randomDirY === 1 ? -1 : 1;
-        } 
-        
-        enemyX += randomDirX*(Math.floor(speed/4)+1);
-        enemyY += randomDirY*(Math.floor(speed/4)+1);
-        
-        
-        ctx.fillRect(enemyX, enemyY, unitSize, unitSize);
-       
-    }, 5)
-  
+    setTimeout( () => {
+        enemies.push(newEnemy)
+    }, 600)
 };
 
+setInterval(() => {
+    clearBoard();
+    drawPlayer();
+    enemies.forEach(enemy => {
+        if (enemy.x > (width - unitSize) || enemy.x < (0)) {
+            enemy.dirX = -enemy.dirX;
+        }
 
-function checkGameOver() { };
+        if (enemy.y > (height - unitSize) || enemy.y < (0)) {
+            enemy.dirY = -enemy.dirY;
+        }
 
-function displayGameOver() { };
+        enemy.x += enemy.dirX*speed;
+        enemy.y += enemy.dirY*speed;
 
-function resetGame() { };
+        ctx.fillStyle = enemyColor;
+        ctx.fillRect(enemy.x, enemy.y, unitSize, unitSize)
+
+        if ((enemy.x < playerX + unitSize && enemy.x > playerX - unitSize) && (enemy.y < playerY + unitSize && enemy.y > playerY - unitSize) && running) {
+            running = false;
+            displayGameOver();  
+        };
+    })
+}, 7)
+
+function displayGameOver() {
+    gameOver.style.visibility = "visible";
+    let scoreElement = document.getElementById("gameOverScore");
+    scoreElement.innerText = score;
+};
+
+function resetGame() {
+    location.reload();
+
+};
 
 
 
