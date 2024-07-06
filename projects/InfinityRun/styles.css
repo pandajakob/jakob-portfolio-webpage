@@ -12,20 +12,50 @@ main {
     top: 0;
     left: 0;
     background-size: auto 100%;
-    animation: animatedBackground 500s linear infinite;
+    animation: animatedBackground 3500s linear infinite;
 }
 
 main img {
     position: relative;
-    top: 500px;
-    width: 20%;
+    top: 650px;
+    width: 15%;
+    left: 200px;
+
 }
+.animation {
+    animation: jumpAnimation 1s linear;
+}
+@keyframes jumpAnimation {
+    0% {
+    top: 650px;
+    transform: rotate(500deg);
+    }
+    30% {
+    top: 200px;
+    }
+    50% {
+    top: 200px;
+    }
+
+    60% {
+    top: 200px;
+    }
+
+    80% {
+    top: 650px;
+    transform: rotate(0deg);
+    }
+    100% {
+      top: 650px;
+    }
+}
+
 @keyframes animatedBackground {
     from {
       background-position: 0 0;
     }
   /*use negative width if you want it to flow right to left else and positive for left to right*/
     to {
-      background-position: -10000px 0;
+      background-position: 100000% 0;
     }
   }
