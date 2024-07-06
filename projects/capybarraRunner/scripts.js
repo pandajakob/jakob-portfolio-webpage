@@ -4,6 +4,7 @@ const runner = document.getElementById('runner');
 window.addEventListener('keydown', keyPressed)
 
 let inJump = false;
+let running = true;
 
 function keyPressed(evt) {
         const keyCode = evt.keyCode;
@@ -44,11 +45,39 @@ setInterval(() => {
 setInterval(() => {
        let object = document.createElement('img');
        object.src = "ressources/treestump.webp"
-       object.classList = 'object';     
+       object.classList = 'object'; 
+       object.id = 'object'; 
+
+        object.style.zIndex = '0';
        main.appendChild(object)
-       setInterval(() => { main.removeChild(object)}, 5000)
-}, 6000)
+       setInterval(() => { main.removeChild(object)}, 3400)
+}, 3500)
 
 setInterval(() => {
-        
-})
+        const obj = document.getElementById("object");
+        let margin = 20;
+        if (obj) { 
+        const objectTop = parseInt(getComputedStyle(obj).top);
+        const objectLeft = parseInt(getComputedStyle(obj).left);
+
+        const runnerTop = parseInt(getComputedStyle(runner).top);
+        const runnerLeft = parseInt(getComputedStyle(runner).left);
+        console.log("obj le", objectLeft);
+        console.log("rnnerlef", runnerLeft);
+
+
+        if ((objectTop < runnerTop + margin && objectTop > runnerTop-margin) && (objectLeft < runnerLeft-60 && objectLeft > runnerLeft-400)) {
+                running = false;
+                inJump = true;
+                runner.style.top = "1000px";
+                runner.style.transform = "rotate(9000deg)";
+                setTimeout(()=>{runner.style.transform = "rotate(0deg)"; inJump = false;}, 1000)
+                displayGameOver();
+        }
+        }
+
+}, 1);
+
+function displayGameOver() {
+
+}
