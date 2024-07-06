@@ -7,6 +7,7 @@ let inJump = false;
 
 function keyPressed(evt) {
         const keyCode = evt.keyCode;
+        console.log(keyCode)
         if (keyCode == 38 || keyCode == 32 && !inJump) {
                 inJump = true;
                 runner.classList = "animation"
@@ -18,6 +19,21 @@ function keyPressed(evt) {
                 }, 1000)
         }
 
+        if (keyCode == '39') {
+                let leftValue = parseInt(getComputedStyle(runner).left);
+                if (leftValue < 1200) {
+                leftValue += 100;
+                runner.style.left = `${leftValue}px`;
+                }
+        }
+        if (keyCode == '37') {
+                let leftValue = parseInt(getComputedStyle(runner).left);
+                if (leftValue > 0) {
+                leftValue -= 100;
+                runner.style.left = `${leftValue}px`;
+                }
+        }
+
 }
 setInterval(() => {
         if (!inJump) {
@@ -26,14 +42,13 @@ setInterval(() => {
 }, 280)
 
 setInterval(() => {
-       let object = document.createElement('div');
-       object.style.width = "100px";
-       object.style.height = "100px";
-       object.style.backgroundColor = "blue";
-
-
-       object.style.animation = "animation: animatedBackground 1s linear infinite;";
+       let object = document.createElement('img');
+       object.src = "ressources/treestump.webp"
+       object.classList = 'object';     
        main.appendChild(object)
+       setInterval(() => { main.removeChild(object)}, 5000)
+}, 6000)
 
-       
-}, 3000)
+setInterval(() => {
+        
+})

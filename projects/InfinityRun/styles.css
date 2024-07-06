@@ -7,12 +7,21 @@ main {
     background-size: contain;
     width: 100%;
     height: 100%;
-
     position: absolute;
     top: 0;
     left: 0;
     background-size: auto 100%;
-    animation: animatedBackground 3500s linear infinite;
+    animation: animatedBackground 1400s linear infinite;
+    overflow: hidden;
+}
+
+.object {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  top: 650px;
+  left: 2000px;
+  animation: animatedObject 1400s linear infinite;
 }
 
 main img {
@@ -20,7 +29,7 @@ main img {
     top: 650px;
     width: 15%;
     left: 200px;
-
+    transition: all 0.5s;
 }
 .animation {
     animation: jumpAnimation 1s linear;
@@ -28,7 +37,6 @@ main img {
 @keyframes jumpAnimation {
     0% {
     top: 650px;
-    transform: rotate(500deg);
     }
     30% {
     top: 200px;
@@ -39,14 +47,18 @@ main img {
 
     60% {
     top: 200px;
+    transform: rotate(-360deg);
     }
 
     80% {
     top: 650px;
-    transform: rotate(0deg);
+    transform: rotate(-360deg);
     }
+
     100% {
       top: 650px;
+      transform: rotate(-360deg);
+
     }
 }
 
@@ -56,6 +68,15 @@ main img {
     }
   /*use negative width if you want it to flow right to left else and positive for left to right*/
     to {
-      background-position: 100000% 0;
+      background-position: -1000000px 0;
+    }
+  }
+  @keyframes animatedObject {
+    from {
+      left: 2000px;
+    }
+  /*use negative width if you want it to flow right to left else and positive for left to right*/
+    to {
+      left: -1000000px;
     }
   }
