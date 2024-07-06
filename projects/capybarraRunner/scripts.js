@@ -1,11 +1,12 @@
 const main = document.querySelector('main') 
 const runner = document.getElementById('runner');
-
+const scoreText = document.getElementById('scoreText');
 window.addEventListener('keydown', keyPressed)
 
 let inJump = false;
 let running = true;
 
+let score = 0;
 function keyPressed(evt) {
         const keyCode = evt.keyCode;
         console.log(keyCode)
@@ -66,18 +67,25 @@ setInterval(() => {
         console.log("rnnerlef", runnerLeft);
 
 
-        if ((objectTop < runnerTop + margin && objectTop > runnerTop-margin) && (objectLeft < runnerLeft-60 && objectLeft > runnerLeft-400)) {
+        if ((objectTop < runnerTop + margin && objectTop > runnerTop-margin) && (objectLeft < runnerLeft-60 && objectLeft > runnerLeft-400) && running) {
                 running = false;
                 inJump = true;
                 runner.style.top = "1000px";
                 runner.style.transform = "rotate(9000deg)";
-                setTimeout(()=>{runner.style.transform = "rotate(0deg)"; inJump = false;}, 1000)
                 displayGameOver();
         }
         }
 
 }, 1);
+setInterval(() => {
+        if (running) {
+        score += 0.1;
+        score *= 1.0001;
+        scoreText.innerHTML = `score: ${parseInt(score)}`
+        }
+        
+}, 10)
 
 function displayGameOver() {
-
+document.getElementById("gameOver").style.display = "block";
 }

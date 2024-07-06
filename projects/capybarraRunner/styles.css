@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+html {
+  font-family: "Patrick Hand SC", cursive;
+}
 main {
     background-image: URL('ressources/bg.png');
     background-size: contain;
@@ -20,14 +23,14 @@ main {
   position: relative;
   width: 200px;
   height: 200px;
-  top: 650px;
+  top: 620px;
   left: 2000px;
   animation: animatedObject 1400s linear infinite;
 }
 
 main img {
     position: relative;
-    top: 650px;
+    top: 620px;
     width: 15%;
     left: 200px;
     transition: all 0.5s;
@@ -36,9 +39,33 @@ main img {
 .animation {
     animation: jumpAnimation 1s linear;
 }
+#scoreText {
+  position: relative;
+  font-size: 2rem;
+  top: 20px;
+  left: 20px;
+}
+#gameOver {
+  display: none;
+  z-index: 2;
+  text-align: center;
+  position: relative;
+  font-size: 2.4rem;
+  margin-top: 2%;
+  transition: all 0.5s;
+}
+
+#play-again-btn {
+  font-family: "Patrick Hand SC", cursive;
+  font-size: 2rem;
+  padding: .8% 2%;
+  border-radius: 10px;
+  cursor: pointer;
+
+}
 @keyframes jumpAnimation {
     0% {
-    top: 650px;
+    top: 620px;
     }
     30% {
     top: 200px;
@@ -58,7 +85,7 @@ main img {
     }
 
     100% {
-      top: 650px;
+      top: 620px;
       transform: rotate(-360deg);
 
     }
