@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+main {
+    background-image: URL('ressources/bg.png');
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: auto 100%;
+    animation: animatedBackground 500s linear infinite;
+}
+
+main img {
+    position: relative;
+    top: 500px;
+    width: 20%;
+}
+@keyframes animatedBackground {
+    from {
+      background-position: 0 0;
+    }
+  /*use negative width if you want it to flow right to left else and positive for left to right*/
+    to {
+      background-position: -10000px 0;
+    }
+  }
