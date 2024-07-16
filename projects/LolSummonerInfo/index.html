@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+
+    <div id="form">
+        <h3> RIOT ID</h3>
+        <label> Tagline </label><br>
+        <input type="text" name="tagline" id="tagline">
+        <br><br>    
+        <label> Game Name </label><br>
+        <input type="text" name="game_name" id="game_name">
+        <br>   <br>
+
+       
+        <select id="lol-regions">
+            <option value="BR1">BR1</option>
+            <option value="EUN1" selected="true">EUN1</option>
+            <option value="EUW1">EUW1</option>
+            <option value="JP1">JP1</option>
+            <option value="KR">KR</option>
+            <option value="LA1">LA1</option>
+            <option value="LA2">LA2</option>
+            <option value="ME1">ME1</option>
+            <option value="NA1">NA1</option>
+            <option value="OC1">OC1</option>
+            <option value="PH2">PH2</option>
+            <option value="RU">RU</option>         
+            <option value="SG2">SG2</option>
+            <option value="TH2">TH2</option>
+            <option value="TR1">TR1</option>
+            <option value="TW2">TW2</option>
+            <option value="VN2">VN2</option>
+        </select>
+        <br>
+        <input type="button" id="search_button" value="search">
+
+                  
+    </div>
+    
+    <div id="playerInfo">
+        <h1 id="summoner_name"> Summonor </h1>
+        <p id="summoner_level"> level:  </p>
+    </div>
+</body>
+<script src="script.js" type="module"></script>
+</html>
