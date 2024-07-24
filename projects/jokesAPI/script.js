@@ -10,7 +10,7 @@ async function fetchJoke() {
     if (!jokeRunning) {
     let i = 0;
     jokeRunning = true;
-    console.log(i, 'iii')
+
     const response = await fetch(jokeURL);
         if (response.ok) {
             const jsonResponse = await response.json();        
@@ -45,7 +45,7 @@ async function fetchYodaAnswer(joke) {
     const response = await fetch(urlToFetch);
     if (response.ok) {
         const jsonResponse = await response.json();
-        console.log(jsonResponse, 'js')
+
     }
 
 }

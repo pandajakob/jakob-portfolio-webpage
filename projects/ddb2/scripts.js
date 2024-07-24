@@ -48,7 +48,6 @@ function gameStart() {
             if (running) {
                 drawEnemies();
                 speed += 0.1/enemies.length;
-                console.log("speed", speed)
             }
         }, 7000)
 

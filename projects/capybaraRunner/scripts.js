@@ -9,7 +9,6 @@ let running = true;
 let score = 0;
 function keyPressed(evt) {
         const keyCode = evt.keyCode;
-        console.log(keyCode)
         if (keyCode == 38 || keyCode == 32 && !inJump) {
                 inJump = true;
                 runner.classList = "animation"
@@ -63,9 +62,6 @@ setInterval(() => {
 
         const runnerTop = parseInt(getComputedStyle(runner).top);
         const runnerLeft = parseInt(getComputedStyle(runner).left);
-        console.log("obj le", objectLeft);
-        console.log("rnnerlef", runnerLeft);
-
 
         if ((objectTop < runnerTop + margin && objectTop > runnerTop-margin) && (objectLeft < runnerLeft-60 && objectLeft > runnerLeft-400) && running) {
                 running = false;

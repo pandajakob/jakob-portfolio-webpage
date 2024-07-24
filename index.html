@@ -1,66 +1,83 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <title> Jakob Michaelsen</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakob Michaelsen</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        
-    </header>
     <main>
+    <div id="title-section">
+        <h1> Jakob Michaelsen</h1>
+        <h2> Portfolio Page</h2>
+    </div>
 
-        <div class="top-section">
-            <div class="description">
-            <h1> Jakob Michaelsen || projects</h1>
+    <h2 class="h2-title"> projects</h2>
+    <div class="project-section">
+        <a href="projects/tictactoe/">
+        <div class="project">
+            <h3> Tic Tac Toe</h3>
+            <p> language: javascript</p>
+            <p class="description"> play tic tac toe vs a computer using MiniMax algorthm to find best move</p>
+
+        </div>
+        </a>
+
+        <a href="projects/compoundInterestCalculator/">
+            <div class="project">
+                <h3> Compound Interest Calculator</h3>
+                <p> language: javascript</p>
+                <p class="description"> Tool for calculating compound interest. Uses the chart.js library to visualise the calculations. </p>
 
             </div>
-        </div>
+        </a>
 
-        <div class="projectSection">
-                <a href="projects/tictactoe/">
-                <div class="project">
-                    <h2> Tic Tac Toe</h2>
-                    <p> language: javascript</p>
-                </div>
-                </a>
+        <a href="projects/jokesAPI/">
+            <div class="project">
+                <h3> jokes </h3>
+                <p> language: javascript</p>
+                <p class="description"> free jokes from jokeapi.dev. Learning project for practising ajax and http requests.</p>
 
-                <a href="projects/compoundInterestCalculator/">
-                    <div class="project">
-                        <h2> Compound Interest Calculator</h2>
-                        <p> language: javascript</p>
-                    </div>
-                </a>
+            </div>
+        </a>
 
-                <a href="projects/jokesAPI/">
-                    <div class="project">
-                        <h2> jokes </h2>
-                        <p> language: javascript</p>
+     
+        <a href="projects/ddb2/">
+            <div class="project">
+                <h3> Dodge the blocks 2</h3>
+                <p> language: javascript</p>
+                <p class="description"> game created with html canvas and js. Increases in difficulty every second</p>
 
-                    </div>
-                </a>
+            </div>
+        </a>
 
-                <a href="projects/ddb/">
-                    <div class="project">
-                        <h2> Dodge the blocks </h2>
-                        <p> language: javascript</p>
-                    </div>
-                </a>
-                <a href="projects/ddb2/">
-                    <div class="project">
-                        <h2> Dodge the blocks 2</h2>
-                        <p> language: javascript</p>
-                    </div>
-                </a>
-                <a href="projects/capybaraRunner/">
-                    <div class="project">
-                        <h2> Capybara runner</h2>
-                        <p> language: javascript</p>
-                    </div>
-                </a>
-        </div>
-       
+        <a href="projects/capybaraRunner/">
+            <div class="project">
+                <h3> Capybara runner</h3>
+                <p> language: javascript</p>
+                <p class="description"> Visualy cool infinity run game including cute Cabybara.</p>
+
+            </div>
+        </a>
+      
+</div>
+
+    <h2 class="h2-title-light"> Contact </h2>
+
+<div id="contact-section">
+
+    <a class="contact-item" href="https://github.com/pandajakob"> 
+        Github.com/pandajakob
+    </a>
+
+    <a class="contact-item" href="mailto: jakobm.dev@gmail.com"> 📩 jakobm.dev@gmail.com</a>
+</div>
+    
+    
     </main>
 </body>
 </html>

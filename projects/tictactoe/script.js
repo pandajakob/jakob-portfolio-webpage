@@ -28,7 +28,7 @@ function setDifficulty(e) {
     document.getElementById(id).style.background = 'var(--darkBG)';
 
 
-   console.log("difficulty set to", difficulty)
+
 };
 
 let currentPlayer = X_Text;
@@ -60,8 +60,6 @@ function boxClicked(e) {
         }
 
     }
-    console.log("spaces", spaces)
-    console.log("diff", difficulty)
 
 };
 
@@ -140,17 +138,13 @@ const playComputerTurn = () => {
             }
         }).filter(index => index != undefined)
 
-        console.log('maxeval indexes', indicesOfMaxEval)
+
 
         let i = indicesOfMaxEval[Math.floor(Math.random()*indicesOfMaxEval.length)];
        
 
 
         let bestChoice = children[i];
-        
-        console.log("best choice", bestChoice)
-
-        console.log("minimaxarray", minimaxArray)
 
         bestChoice.forEach((field, index) => {
             boxes[index].innerHTML = field;
@@ -177,7 +171,6 @@ const getChildren = (gameSpaces, player) => {
         array.push(new Array(...gameSpaces));
         gameSpaces[freeSpaces[i]] = null;
     }
-    // console.log("Children", array)
     return array;
 }
 
@@ -195,7 +188,6 @@ const evaluate = (gamespaces) => {
 
 
 const minimax = (currentSpaces, depth, player) => {
-    // console.log("depth", depth)
     let children = getChildren(currentSpaces, player);
 
     if (depth === 0 || !checkGame(currentSpaces)) {

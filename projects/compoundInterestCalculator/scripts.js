@@ -10,8 +10,6 @@ const taxRateElement = document.getElementById("taxRate");
 
 const calcTax = (growth) => {
     const taxRate = parseFloat(taxRateElement.value / 100);
-    console.log("taxRate", taxRate)
-    console.log("taxcalc: ", growth*taxRate);
     
     return taxRate === 1 ? 0 : growth*taxRate;
 }
@@ -84,8 +82,7 @@ const populateTable = () => {
 const addToTable = () => {
     addDataPoints();
 
-    console.log(dataPoints);
-     populateTable();
+    populateTable();
     let totalInvestment = parseFloat(timeHorizon.value)*parseInt(monthlyContribution.value)*12+parseInt(initialInvestment.value)
     let totalInterest = parseFloat(dataPoints[dataPoints.length-1].dataInterest)
     let totalTax = 0;
@@ -101,10 +98,6 @@ const addToTable = () => {
       totalTax = parseFloat(dataPoints[dataPoints.length-1].dataTax)
     }
 
-    console.log("Max value: " + dataPoints[dataPoints.length-1].dataValue);
-    console.log("Investment: " + totalInvestment);
-    console.log("Interest :" + totalInterest);
-    console.log("Tax: " + totalTax);
 
     const totalReturn = Math.floor(totalInterest + totalInvestment - totalTax)
     document.getElementById("totalReturn").innerHTML = `Total investment: ${totalReturn} 💰`;

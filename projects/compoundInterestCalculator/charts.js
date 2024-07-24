@@ -80,7 +80,6 @@ let pieChart = new Chart(pieCanvasElement, pieChartCfg)
 
 
 const setBarChartData = (data) => {
-    console.log("sbtsdf: " + data)
     chart.data.labels = data.map(dp => dp.dataYear);
     chart.data.datasets[0].data = data.map(dp => parseFloat(dp.dataValue));
     chart.data.datasets[1].data = data.map(dp => parseFloat(dp.dataInterest));
