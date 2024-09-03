@@ -1,0 +1,798 @@
+{
+    
+        "personfradrag": 49700,
+        "besk_fradrag_pct": 10.65,
+        "ambidrag_pct": 8,
+        "bundskat_pct": 12.01,
+        "topskat_pct": 15,
+        "topskat_grnse": 588900,
+        "skatteloft_pct": 52.07,
+        "kommuneskat": [
+            {
+                "Kommune": "København",
+                "Region": "Hovedstaden",
+                "Skatte": 23.6,
+                "Kirke": 0.8,
+                "Nedslag": 0,
+                "Grundskyldspromille": 5.1
+            },
+            {
+                "Kommune": "Frederiksberg",
+                "Region": "Hovedstaden",
+                "Skatte": 24.57,
+                "Kirke": 0.5,
+                "Nedslag": 0,
+                "Grundskyldspromille": 3.1
+            },
+            {
+                "Kommune": "Ballerup",
+                "Region": "Hovedstaden",
+                "Skatte": 25.5,
+                "Kirke": 0.7200000000000001,
+                "Nedslag": 0.44000000000000006,
+                "Grundskyldspromille": 8.3
+            },
+            {
+                "Kommune": "Brøndby",
+                "Region": "Hovedstaden",
+                "Skatte": 24.3,
+                "Kirke": 0.8,
+                "Nedslag": 0,
+                "Grundskyldspromille": 4.9
+            },
+            {
+                "Kommune": "Dragør",
+                "Region": "Hovedstaden",
+                "Skatte": 24.8,
+                "Kirke": 0.6100000000000001,
+                "Nedslag": 0,
+                "Grundskyldspromille": 8.1
+            },
+            {
+                "Kommune": "Gentofte",
+                "Region": "Hovedstaden",
+                "Skatte": 24.34,
+                "Kirke": 0.4,
+                "Nedslag": 0,
+                "Grundskyldspromille": 5.1
+            },
+            {
+                "Kommune": "Gladsaxe",
+                "Region": "Hovedstaden",
+                "Skatte": 23.6,
+                "Kirke": 0.75,
+                "Nedslag": 0,
+                "Grundskyldspromille": 5.9
+            },
+            {
+                "Kommune": "Glostrup",
+                "Region": "Hovedstaden",
+                "Skatte": 24.6,
+                "Kirke": 0.8,
+                "Nedslag": 0,
+                "Grundskyldspromille": 6.5
+            },
+            {
+                "Kommune": "Herlev",
+                "Region": "Hovedstaden",
+                "Skatte": 23.7,
+                "Kirke": 0.75,
+                "Nedslag": 0,
+                "Grundskyldspromille": 5.4
+            },
+            {
+                "Kommune": "Albertslund",
+                "Region": "Hovedstaden",
+                "Skatte": 25.6,
+                "Kirke": 0.8,
+                "Nedslag": 0.54,
+                "Grundskyldspromille": 9.1
+            },
+            {
+                "Kommune": "Hvidovre",
+                "Region": "Hovedstaden",
+                "Skatte": 25.400000000000002,
+                "Kirke": 0.7200000000000001,
+                "Nedslag": 0.34,
+                "Grundskyldspromille": 6.5
+            },
+            {
+                "Kommune": "Høje-Taastrup",
+                "Region": "Hovedstaden",
+                "Skatte": 24.6,
+                "Kirke": 0.8,
+                "Nedslag": 0,
+                "Grundskyldspromille": 6.3
+            },
+            {
+                "Kommune": "Lyngby-Taarbæk",
+                "Region": "Hovedstaden",
+                "Skatte": 24.38,
+                "Kirke": 0.6000000000000001,
+                "Nedslag": 0,
+                "Grundskyldspromille": 6.7
+            },
+            {
+                "Kommune": "Rødovre",
+                "Region": "Hovedstaden",
+                "Skatte": 25.7,
+                "Kirke": 0.7200000000000001,
+                "Nedslag": 0.64,
+                "Grundskyldspromille": 7.8
+            },
+            {
+                "Kommune": "Ishøj",
+                "Region": "Hovedstaden",
+                "Skatte": 25,
+                "Kirke": 0.9,
+                "Nedslag": 0,
+                "Grundskyldspromille": 6.5
+            },
+            {
+                "Kommune": "Tårnby",
+                "Region": "Hovedstaden",
+                "Skatte": 24.1,
+                "Kirke": 0.6100000000000001,
+                "Nedslag": 0,
+                "Grundskyldspromille": 6
+            },
+            {
+                "Kommune": "Vallensbæk",
+                "Region": "Hovedstaden",
+                "Skatte": 25.6,
+                "Kirke": 0.8,
+                "Nedslag": 0.54,
+                "Grundskyldspromille": 8.6
+            },
+            {
+                "Kommune": "Furesø",
+                "Region": "Hovedstaden",
+                "Skatte": 24.88,
+                "Kirke": 0.65,
+                "Nedslag": 0,
+                "Grundskyldspromille": 7
+            },
+            {
+                "Kommune": "Allerød",
+                "Region": "Hovedstaden",
+                "Skatte": 25.3,
+                "Kirke": 0.5800000000000001,
+                "Nedslag": 0.24000000000000002,
+                "Grundskyldspromille": 8
+            },
+            {
+                "Kommune": "Fredensborg",
+                "Region": "Hovedstaden",
+                "Skatte": 25.3,
+                "Kirke": 0.62,
+                "Nedslag": 0.24000000000000002,
+                "Grundskyldspromille": 8.3
+            },
+            {
+                "Kommune": "Helsingør",
+                "Region": "Hovedstaden",
+                "Skatte": 25.52,
+                "Kirke": 0.63,
+                "Nedslag": 0.46,
+                "Grundskyldspromille": 9.5
+            },
+            {
+                "Kommune": "Hillerød",
+                "Region": "Hovedstaden",
+                "Skatte": 25.6,
+                "Kirke": 0.6900000000000001,
+                "Nedslag": 0.54,
+                "Grundskyldspromille": 6.6
+            },
+            {
+                "Kommune": "Hørsholm",
+                "Region": "Hovedstaden",
+                "Skatte": 23.7,
+                "Kirke": 0.62,
+                "Nedslag": 0,
+                "Grundskyldspromille": 8.5
+            },
+            {
+                "Kommune": "Rudersdal",
+                "Region": "Hovedstaden",
+                "Skatte": 23.36,
+                "Kirke": 0.5700000000000001,
+                "Nedslag": 0,
+                "Grundskyldspromille": 9.6
+            },
+            {
+                "Kommune": "Egedal",
+                "Region": "Hovedstaden",
+                "Skatte": 25.7,
+                "Kirke": 0.76,
+                "Nedslag": 0.64,
+                "Grundskyldspromille": 8.8
+            },
+            {
+                "Kommune": "Frederikssund",
+                "Region": "Hovedstaden",
+                "Skatte": 25.8,
+                "Kirke": 0.9600000000000001,
+                "Nedslag": 0.7400000000000001,
+                "Grundskyldspromille": 12
+            },
+            {
+                "Kommune": "Greve",
+                "Region": "Sjælland",
+                "Skatte": 24.52,
+                "Kirke": 0.7300000000000001,
+                "Nedslag": 0,
+                "Grundskyldspromille": 5.5
+            },
+            {
+                "Kommune": "Køge",
+                "Region": "Sjælland",
+                "Skatte": 25.26,
+                "Kirke": 0.8700000000000001,
+                "Nedslag": 0.2,
+                "Grundskyldspromille": 5.3
+            },
+            {
+                "Kommune": "Halsnæs",
+                "Region": "Hovedstaden",
+                "Skatte": 25.7,
+                "Kirke": 0.8500000000000001,
+                "Nedslag": 0.64,
+                "Grundskyldspromille": 10.9
+            },
+            {
+                "Kommune": "Roskilde",
+                "Region": "Sjælland",
+                "Skatte": 25.2,
+                "Kirke": 0.8400000000000001,
+                "Nedslag": 0.14,
+                "Grundskyldspromille": 7.4
+            },
+            {
+                "Kommune": "Solrød",
+                "Region": "Sjælland",
+                "Skatte": 24.990000000000002,
+                "Kirke": 0.8900000000000001,
+                "Nedslag": 0,
+                "Grundskyldspromille": 7.9
+            },
+            {
+                "Kommune": "Gribskov",
+                "Region": "Hovedstaden",
+                "Skatte": 25.400000000000002,
+                "Kirke": 0.8500000000000001,
+                "Nedslag": 0.34,
+                "Grundskyldspromille": 11.1
+            },
+            {
+                "Kommune": "Odsherred",
+                "Region": "Sjælland",
+                "Skatte": 26.3,
+                "Kirke": 0.9800000000000001,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 12.3
+            },
+            {
+                "Kommune": "Holbæk",
+                "Region": "Sjælland",
+                "Skatte": 25.3,
+                "Kirke": 0.9600000000000001,
+                "Nedslag": 0.24000000000000002,
+                "Grundskyldspromille": 8.1
+            },
+            {
+                "Kommune": "Faxe",
+                "Region": "Sjælland",
+                "Skatte": 25.8,
+                "Kirke": 1.08,
+                "Nedslag": 0.7400000000000001,
+                "Grundskyldspromille": 8
+            },
+            {
+                "Kommune": "Kalundborg",
+                "Region": "Sjælland",
+                "Skatte": 24.2,
+                "Kirke": 1.01,
+                "Nedslag": 0,
+                "Grundskyldspromille": 16.6
+            },
+            {
+                "Kommune": "Ringsted",
+                "Region": "Sjælland",
+                "Skatte": 26.1,
+                "Kirke": 0.9500000000000001,
+                "Nedslag": 1.04,
+                "Grundskyldspromille": 7
+            },
+            {
+                "Kommune": "Slagelse",
+                "Region": "Sjælland",
+                "Skatte": 26.1,
+                "Kirke": 0.9600000000000001,
+                "Nedslag": 1.04,
+                "Grundskyldspromille": 11.1
+            },
+            {
+                "Kommune": "Stevns",
+                "Region": "Sjælland",
+                "Skatte": 26,
+                "Kirke": 1.1,
+                "Nedslag": 0.9400000000000001,
+                "Grundskyldspromille": 8.3
+            },
+            {
+                "Kommune": "Sorø",
+                "Region": "Sjælland",
+                "Skatte": 26.3,
+                "Kirke": 0.9500000000000001,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 9.8
+            },
+            {
+                "Kommune": "Lejre",
+                "Region": "Sjælland",
+                "Skatte": 25.310000000000002,
+                "Kirke": 1.05,
+                "Nedslag": 0.25,
+                "Grundskyldspromille": 9.6
+            },
+            {
+                "Kommune": "Lolland",
+                "Region": "Sjælland",
+                "Skatte": 26.3,
+                "Kirke": 1.23,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 17.400000000000002
+            },
+            {
+                "Kommune": "Næstved",
+                "Region": "Sjælland",
+                "Skatte": 25,
+                "Kirke": 0.9800000000000001,
+                "Nedslag": 0,
+                "Grundskyldspromille": 9.8
+            },
+            {
+                "Kommune": "Guldborgsund",
+                "Region": "Sjælland",
+                "Skatte": 25.8,
+                "Kirke": 1.16,
+                "Nedslag": 0.7400000000000001,
+                "Grundskyldspromille": 15.9
+            },
+            {
+                "Kommune": "Vordingborg",
+                "Region": "Sjælland",
+                "Skatte": 26.3,
+                "Kirke": 1.02,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 13.5
+            },
+            {
+                "Kommune": "Bornholm",
+                "Region": "Hovedstaden",
+                "Skatte": 26.2,
+                "Kirke": 0.93,
+                "Nedslag": 1.14,
+                "Grundskyldspromille": 10.700000000000001
+            },
+            {
+                "Kommune": "Middelfart",
+                "Region": "Syddanmark",
+                "Skatte": 25.8,
+                "Kirke": 0.9,
+                "Nedslag": 0.7400000000000001,
+                "Grundskyldspromille": 6.8
+            },
+            {
+                "Kommune": "Assens",
+                "Region": "Syddanmark",
+                "Skatte": 26.1,
+                "Kirke": 0.9800000000000001,
+                "Nedslag": 1.04,
+                "Grundskyldspromille": 11.200000000000001
+            },
+            {
+                "Kommune": "Faaborg-Midtfyn",
+                "Region": "Syddanmark",
+                "Skatte": 26.1,
+                "Kirke": 1.05,
+                "Nedslag": 1.04,
+                "Grundskyldspromille": 8.5
+            },
+            {
+                "Kommune": "Kerteminde",
+                "Region": "Syddanmark",
+                "Skatte": 26.1,
+                "Kirke": 0.9800000000000001,
+                "Nedslag": 1.04,
+                "Grundskyldspromille": 12.4
+            },
+            {
+                "Kommune": "Nyborg",
+                "Region": "Syddanmark",
+                "Skatte": 26.3,
+                "Kirke": 1,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 12.8
+            },
+            {
+                "Kommune": "Odense",
+                "Region": "Syddanmark",
+                "Skatte": 25.5,
+                "Kirke": 0.68,
+                "Nedslag": 0.44000000000000006,
+                "Grundskyldspromille": 5.7
+            },
+            {
+                "Kommune": "Svendborg",
+                "Region": "Syddanmark",
+                "Skatte": 26.3,
+                "Kirke": 1.02,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 8.8
+            },
+            {
+                "Kommune": "Nordfyns",
+                "Region": "Syddanmark",
+                "Skatte": 26,
+                "Kirke": 1.04,
+                "Nedslag": 0.9400000000000001,
+                "Grundskyldspromille": 15.1
+            },
+            {
+                "Kommune": "Langeland",
+                "Region": "Syddanmark",
+                "Skatte": 26.3,
+                "Kirke": 1.14,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 12.200000000000001
+            },
+            {
+                "Kommune": "Ærø",
+                "Region": "Syddanmark",
+                "Skatte": 26.1,
+                "Kirke": 1.07,
+                "Nedslag": 1.04,
+                "Grundskyldspromille": 11.1
+            },
+            {
+                "Kommune": "Haderslev",
+                "Region": "Syddanmark",
+                "Skatte": 26.3,
+                "Kirke": 0.9500000000000001,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 12.700000000000001
+            },
+            {
+                "Kommune": "Billund",
+                "Region": "Syddanmark",
+                "Skatte": 24,
+                "Kirke": 0.8900000000000001,
+                "Nedslag": 0,
+                "Grundskyldspromille": 7.2
+            },
+            {
+                "Kommune": "Sønderborg",
+                "Region": "Syddanmark",
+                "Skatte": 25.7,
+                "Kirke": 0.91,
+                "Nedslag": 0.64,
+                "Grundskyldspromille": 13.5
+            },
+            {
+                "Kommune": "Tønder",
+                "Region": "Syddanmark",
+                "Skatte": 25.3,
+                "Kirke": 1.16,
+                "Nedslag": 0.24000000000000002,
+                "Grundskyldspromille": 10.8
+            },
+            {
+                "Kommune": "Esbjerg",
+                "Region": "Syddanmark",
+                "Skatte": 25.8,
+                "Kirke": 0.81,
+                "Nedslag": 0.7400000000000001,
+                "Grundskyldspromille": 9.9
+            },
+            {
+                "Kommune": "Fanø",
+                "Region": "Syddanmark",
+                "Skatte": 25.77,
+                "Kirke": 1.14,
+                "Nedslag": 0.7100000000000001,
+                "Grundskyldspromille": 12.5
+            },
+            {
+                "Kommune": "Varde",
+                "Region": "Syddanmark",
+                "Skatte": 25.1,
+                "Kirke": 0.9500000000000001,
+                "Nedslag": 0.04,
+                "Grundskyldspromille": 17.7
+            },
+            {
+                "Kommune": "Vejen",
+                "Region": "Syddanmark",
+                "Skatte": 25.330000000000002,
+                "Kirke": 1.06,
+                "Nedslag": 0.27,
+                "Grundskyldspromille": 9
+            },
+            {
+                "Kommune": "Aabenraa",
+                "Region": "Syddanmark",
+                "Skatte": 25.6,
+                "Kirke": 0.9500000000000001,
+                "Nedslag": 0.54,
+                "Grundskyldspromille": 7.8
+            },
+            {
+                "Kommune": "Fredericia",
+                "Region": "Syddanmark",
+                "Skatte": 25.5,
+                "Kirke": 0.8800000000000001,
+                "Nedslag": 0.44000000000000006,
+                "Grundskyldspromille": 13
+            },
+            {
+                "Kommune": "Horsens",
+                "Region": "Midtjylland",
+                "Skatte": 25.69,
+                "Kirke": 0.79,
+                "Nedslag": 0.63,
+                "Grundskyldspromille": 8.7
+            },
+            {
+                "Kommune": "Kolding",
+                "Region": "Syddanmark",
+                "Skatte": 25.5,
+                "Kirke": 0.92,
+                "Nedslag": 0.44000000000000006,
+                "Grundskyldspromille": 11.1
+            },
+            {
+                "Kommune": "Vejle",
+                "Region": "Syddanmark",
+                "Skatte": 23.400000000000002,
+                "Kirke": 0.8900000000000001,
+                "Nedslag": 0,
+                "Grundskyldspromille": 10.5
+            },
+            {
+                "Kommune": "Herning",
+                "Region": "Midtjylland",
+                "Skatte": 25.400000000000002,
+                "Kirke": 0.9900000000000001,
+                "Nedslag": 0.34,
+                "Grundskyldspromille": 9.9
+            },
+            {
+                "Kommune": "Holstebro",
+                "Region": "Midtjylland",
+                "Skatte": 25.5,
+                "Kirke": 1.08,
+                "Nedslag": 0.44000000000000006,
+                "Grundskyldspromille": 11.5
+            },
+            {
+                "Kommune": "Lemvig",
+                "Region": "Midtjylland",
+                "Skatte": 25.46,
+                "Kirke": 1.27,
+                "Nedslag": 0.4,
+                "Grundskyldspromille": 15.4
+            },
+            {
+                "Kommune": "Struer",
+                "Region": "Midtjylland",
+                "Skatte": 25.3,
+                "Kirke": 1.2,
+                "Nedslag": 0.24000000000000002,
+                "Grundskyldspromille": 15.5
+            },
+            {
+                "Kommune": "Syddjurs",
+                "Region": "Midtjylland",
+                "Skatte": 25.900000000000002,
+                "Kirke": 0.9400000000000001,
+                "Nedslag": 0.8400000000000001,
+                "Grundskyldspromille": 14.200000000000001
+            },
+            {
+                "Kommune": "Norddjurs",
+                "Region": "Midtjylland",
+                "Skatte": 26,
+                "Kirke": 1,
+                "Nedslag": 0.9400000000000001,
+                "Grundskyldspromille": 16.8
+            },
+            {
+                "Kommune": "Favrskov",
+                "Region": "Midtjylland",
+                "Skatte": 25.7,
+                "Kirke": 0.9600000000000001,
+                "Nedslag": 0.64,
+                "Grundskyldspromille": 10.6
+            },
+            {
+                "Kommune": "Odder",
+                "Region": "Midtjylland",
+                "Skatte": 25.1,
+                "Kirke": 0.9500000000000001,
+                "Nedslag": 0.04,
+                "Grundskyldspromille": 14.4
+            },
+            {
+                "Kommune": "Randers",
+                "Region": "Midtjylland",
+                "Skatte": 25.8,
+                "Kirke": 0.8900000000000001,
+                "Nedslag": 0.7400000000000001,
+                "Grundskyldspromille": 13.9
+            },
+            {
+                "Kommune": "Silkeborg",
+                "Region": "Midtjylland",
+                "Skatte": 25.5,
+                "Kirke": 0.9500000000000001,
+                "Nedslag": 0.44000000000000006,
+                "Grundskyldspromille": 11
+            },
+            {
+                "Kommune": "Samsø",
+                "Region": "Midtjylland",
+                "Skatte": 25.900000000000002,
+                "Kirke": 1.22,
+                "Nedslag": 0.8400000000000001,
+                "Grundskyldspromille": 10.5
+            },
+            {
+                "Kommune": "Skanderborg",
+                "Region": "Midtjylland",
+                "Skatte": 26,
+                "Kirke": 0.8600000000000001,
+                "Nedslag": 0.9400000000000001,
+                "Grundskyldspromille": 8.6
+            },
+            {
+                "Kommune": "Aarhus",
+                "Region": "Midtjylland",
+                "Skatte": 24.52,
+                "Kirke": 0.7400000000000001,
+                "Nedslag": 0,
+                "Grundskyldspromille": 6
+            },
+            {
+                "Kommune": "Ikast-Brande",
+                "Region": "Midtjylland",
+                "Skatte": 25.1,
+                "Kirke": 0.9700000000000001,
+                "Nedslag": 0.04,
+                "Grundskyldspromille": 9.1
+            },
+            {
+                "Kommune": "Ringkøbing-Skjern",
+                "Region": "Midtjylland",
+                "Skatte": 25,
+                "Kirke": 1.05,
+                "Nedslag": 0,
+                "Grundskyldspromille": 16.400000000000002
+            },
+            {
+                "Kommune": "Hedensted",
+                "Region": "Midtjylland",
+                "Skatte": 25.52,
+                "Kirke": 0.9800000000000001,
+                "Nedslag": 0.46,
+                "Grundskyldspromille": 7.9
+            },
+            {
+                "Kommune": "Morsø",
+                "Region": "Nordjylland",
+                "Skatte": 25.8,
+                "Kirke": 1.2,
+                "Nedslag": 0.7400000000000001,
+                "Grundskyldspromille": 15.3
+            },
+            {
+                "Kommune": "Skive",
+                "Region": "Midtjylland",
+                "Skatte": 25.5,
+                "Kirke": 1.09,
+                "Nedslag": 0.44000000000000006,
+                "Grundskyldspromille": 11.6
+            },
+            {
+                "Kommune": "Thisted",
+                "Region": "Nordjylland",
+                "Skatte": 25.5,
+                "Kirke": 1.27,
+                "Nedslag": 0.44000000000000006,
+                "Grundskyldspromille": 11.200000000000001
+            },
+            {
+                "Kommune": "Viborg",
+                "Region": "Midtjylland",
+                "Skatte": 25.5,
+                "Kirke": 0.93,
+                "Nedslag": 0.44000000000000006,
+                "Grundskyldspromille": 11.5
+            },
+            {
+                "Kommune": "Brønderslev",
+                "Region": "Nordjylland",
+                "Skatte": 26.3,
+                "Kirke": 1.08,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 17.1
+            },
+            {
+                "Kommune": "Frederikshavn",
+                "Region": "Nordjylland",
+                "Skatte": 26.2,
+                "Kirke": 1.03,
+                "Nedslag": 1.14,
+                "Grundskyldspromille": 13.4
+            },
+            {
+                "Kommune": "Vesthimmerland",
+                "Region": "Nordjylland",
+                "Skatte": 26.3,
+                "Kirke": 1.18,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 9.3
+            },
+            {
+                "Kommune": "Læsø",
+                "Region": "Nordjylland",
+                "Skatte": 26.3,
+                "Kirke": 1.3,
+                "Nedslag": 1.24,
+                "Grundskyldspromille": 12.700000000000001
+            },
+            {
+                "Kommune": "Rebild",
+                "Region": "Nordjylland",
+                "Skatte": 25.830000000000002,
+                "Kirke": 1.2,
+                "Nedslag": 0.77,
+                "Grundskyldspromille": 8.9
+            },
+            {
+                "Kommune": "Mariagerfjord",
+                "Region": "Nordjylland",
+                "Skatte": 25.900000000000002,
+                "Kirke": 1.15,
+                "Nedslag": 0.8400000000000001,
+                "Grundskyldspromille": 15.700000000000001
+            },
+            {
+                "Kommune": "Jammerbugt",
+                "Region": "Nordjylland",
+                "Skatte": 25.7,
+                "Kirke": 1.2,
+                "Nedslag": 0.64,
+                "Grundskyldspromille": 13.200000000000001
+            },
+            {
+                "Kommune": "Aalborg",
+                "Region": "Nordjylland",
+                "Skatte": 25.6,
+                "Kirke": 0.9800000000000001,
+                "Nedslag": 0.54,
+                "Grundskyldspromille": 7.4
+            },
+            {
+                "Kommune": "Hjørring",
+                "Region": "Nordjylland",
+                "Skatte": 26.21,
+                "Kirke": 1.19,
+                "Nedslag": 1.15,
+                "Grundskyldspromille": 16.5
+            }
+
+        ]
+
+}
