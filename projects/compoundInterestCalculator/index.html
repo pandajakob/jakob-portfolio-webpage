@@ -1,153 +1,99 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title> Compound Interest Calculator</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-        </head>
 
-    <body>
-        <h1> Compund Interest Calculator</h1>
+<head>
+    <meta charset="utf-8">
+    <title> Compound Interest Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
 
-        <main>
-            <div class="formContainer">
-                <form class="form">
-                
+<body>
+    <h1> Compund Interest Calculator</h1>
+
+    <main>
+        <div class="formContainer">
+            <form class="form">
+
                 <div class="gridItem">
-                    <label for="initInvestment">Initial Investment:</label><br>
-                    <input type="number" id="initInvestment" name="initInvestment" value="0" max="1000000000" oninput="addToTable()" placeholder="$">
+                    <label for="initInv">Initial Investment:</label><br>
+                    <input type="number" id="initInv" name="initInv" value="0" max="1000000000" placeholder="$">
                     <label class="unit">💰</label>
                 </div>
-    
+
                 <div class="gridItem">
                     <label for="monthlyContribution">Monthly contribution:</label><br>
-                    <input type="number" id="monthlyContribution" name="monthlyContribution" value="0" placeholder="$" oninput="addToTable()">
-                    <label class="unit">💰</label>
+                    <input type="number" id="monthlyContribution" name="monthlyContribution" value="0" placeholder="$"">
+                    <label class=" unit">💰</label>
                 </div>
                 <div class="gridItem">
                     <label for="timeHorizon">Time horizon (years):</label><br>
-                    <input type="number" max="100" id="timeHorizon" name="timeHorizon" value="10" placeholder="years" oninput="addToTable()">
+                    <input type="number" max="100" id="timeHorizon" name="timeHorizon" value="10" placeholder="years">
                     <label class="unit"> ⌛️</label>
                 </div>
                 <div class="gridItem">
-                    <label for="interestRate" font-weight="500"> Estimated anual interest rate: </label><br>
-                    <input type="number" id="interestRate" name="interestRate" min="-100" max="100" value="0" oninput="addToTable()" placeholder="%">
+                    <label for="yield" font-weight="500"> Estimated anual interest rate: </label><br>
+                    <input type="number" id="yield" name="yield" min="-100" max="100" value="0" placeholder="%">
                     <label class="unit">%</label>
                 </div>
                 <div class="gridItem">
                     <label for="taxRate">Tax rate:</label> <br>
 
-                    <label for="annualTax" class="unit"> Tax annually:  </label> 
-                    <input type="checkbox" id="annualTax" name="annualTax" oninput="addToTable()"><br>
+                    <label for="annualTax" class="unit"> Tax annually: </label>
+                    <input type="checkbox" id="annualTax" name="annualTax"><br>
 
-                    <input type="number" id="taxRate" name="taxRate" min="-100" max="100" value="0" oninput="addToTable()" placeholder="%">
+                    <input type="number" id="taxRate" name="taxRate" min="0" max="100" value="0" placeholder="%">
                     <label class="unit"> % </label>
-                    
+
                 </div>
-                </form>
-            </div>
+            </form>
+        </div>
 
-            <div class="picker">
-                <button class="pickerButton" id="chartButton" onclick="setVisibility('chart')"> Chart</button>
-                <button class="pickerButton" id="tableButton" onclick="setVisibility('table')"> Table </button>
-                <button class="pickerButton" id="pieButton" onclick="setVisibility('pie')"> Pie</button>
-            </div>
+        <div class="picker">
+            <button class="pickerButton" id="chartButton"> Chart</button>
+            <button class="pickerButton" id="tableButton"> Table </button>
+            <button class="pickerButton" id="pieButton"> Pie</button>
+        </div>
 
-            <strong> <h3><p id="totalReturn"> Total Investment: 0 💰</p></strong> </h3>
+        <strong>
+            <h3>
+                <p id="totalReturn"> Total Investment: 0 💰</p>
+        </strong> </h3>
 
-            <div class="flexContainer">
+        <div class="flexContainer">
 
-                <table class="resultsTable">
-                    <tr>
-                        <th> Year </th>
-                        <th> Investment </th>
-                        <th> Interest </th>
-                        <th> Tax </th>
-                        <th> Balance </th>
-                    </tr>
-                    <tr>
-                        <td> - </td>
-                        <td> - </td>
-                        <td> - </td>
-                        <td> - </td>
-                        <td> - </td>
-                    </tr>
-                </table>
+            <table id="resultsTable" class="resultsTable">
+                <tr>
+                    <th> Year </th>
+                    <th> Investment </th>
+                    <th> Interest </th>
+                    <th> Tax </th>
+                    <th> Balance </th>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+            </table>
 
-                <canvas id="canvasChart">
-                </canvas>
+            <canvas id="canvasChart">
+            </canvas>
 
-                <canvas id="pieChart">
-                </canvas>
-            </div>
+            <canvas id="pieChart">
+            </canvas>
+        </div>
 
-        </main>  
-        <script src='scripts.js'> </script>
-        <script src='charts.js'> </script>
-
-        <script>
-            const setVisibility = (view) => {
-                const chartButton = document.getElementById('chartButton');
-                const tableButton = document.getElementById('tableButton');
-                const pieButton = document.getElementById('pieButton')
-
-                const chartElement = document.getElementById('canvasChart');
-                const tableElement = document.querySelector('table');
-                const pieElement = document.getElementById('pieChart');
+    </main>
+    <script type="module" src='./scripts/main.js'> </script>
+    <script type="module" src="./scripts/charts.js"> </script>
+    <script type="module" src="./scripts/table.js"> </script>
+    <script type="module" src="./scripts/buttonAnimation.js"> </script>
 
 
-
-                switch (view) {
-                    case 'chart':
-                        chartElement.style.opacity = '1';
-                        tableElement.style.opacity = '0';
-                        pieElement.style.opacity = '0';
-
-                        chartElement.style.zIndex = "1"
-                        pieElement.style.zIndex = "-1"
-                        tableElement.style.zIndex = "0"
-
-                        chartButton.style.backgroundColor = 'rgb(72, 149, 239, 0.8)'
-                        tableButton.style.backgroundColor = 'white'
-                        pieButton.style.backgroundColor = 'white'
-
-                        break;
-                    case 'table':
-                        tableElement.style.opacity = '1';
-                        chartElement.style.opacity = '0';
-                        pieElement.style.opacity = '0';
-
-                        pieElement.style.zIndex = "0"
-                        chartElement.style.zIndex = "-1"
-                        tableElement.style.zIndex = "1"
-
-                        tableButton.style.backgroundColor = 'rgb(72, 149, 239, 0.8)';
-                        chartButton.style.backgroundColor = 'white';
-                        pieButton.style.backgroundColor = 'white';
-
-
-
-                        break;
-                    case 'pie':
-                        pieElement.style.opacity = '1';
-                        chartElement.style.opacity = '0';
-                        tableElement.style.opacity = '0';
-                        
-                        pieElement.style.zIndex = "1"
-                        chartElement.style.zIndex = "-1"
-                        tableElement.style.zIndex = "0"
-
-                        pieButton.style.backgroundColor = 'rgb(72, 149, 239, 0.8)'
-                        chartButton.style.backgroundColor = 'white'
-                        tableButton.style.backgroundColor = 'white'
-                        
-                        break;
-                }
-            }
-           
-        </script>
-    </body>
+</body>
 
 
 
