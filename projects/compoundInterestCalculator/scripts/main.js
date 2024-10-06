@@ -15,12 +15,12 @@ const setInvInputs = () => {
     timeHorizon: parseInt(timeHorizonInput.value),
     initInv: parseInt(initInvInput.value),
     yield: parseFloat(yieldInput.value) / 100 + 1,
-    yearlyContribution: parseFloat(monthlyContributionInput.value),
+    yearlyContribution: parseFloat(monthlyContributionInput.value) * 12,
     taxRate: parseFloat(taxRateInput.value) / 100,
     isAnnualTaxChecked: annualTaxCheckbox.checked,
   };
 };
-let invResults; // Empty array for datapoints
+export let invResults; // Empty array for datapoints
 
 /* */
 const calcTax = (growth) => {
@@ -39,40 +39,39 @@ const calcInvestment = () => {
   /* total value of inv. Starting from the initial 
    investment plus yearly contribution as no matter the time
    horizon and yield, this will always be calculated */
-  let totalInvValue = invInputs.initInv + invInputs.yearlyContribution;
-  let totalInterest = 0; // holds total amount of interest gained.
-  let totalTax = 0; // holds total amount of tax paid.
+  let totalInvAmount = invInputs.initInv;
+  let totalInterestEarned = 0; // holds total amount of interest gained.
+  let totalTaxPaid = 0; // holds total amount of tax paid.
 
   /* Loop through each year in timeHorizon. Calculates growth 
   and tax and adds as datapoint in dataPoints array */
   for (let i = 1; i <= invInputs.timeHorizon; i++) {
-    let growth = calcGrowth(totalInvValue + totalInterest);
+    let growth = calcGrowth(totalInvAmount + totalInterestEarned);
 
     // sets tax to zero if annual tax is not checked
     if (invInputs.isAnnualTaxChecked) {
       growth -= calcTax(growth);
-      totalTax += calcTax(growth);
+      totalTaxPaid += calcTax(growth);
     }
 
-    totalInterest += growth;
-    totalInvValue += invInputs.yearlyContribution;
+    totalInterestEarned += growth; // adds the growth of the year
+    totalInvAmount += invInputs.yearlyContribution;
 
     const dataPoint = {
-      dataYear: `${i}`,
-      dataValue: totalInvValue,
-      dataInterest: totalInterest,
-      dataTax: totalTax,
+      year: `${i}`, // year
+      totalInvAmount: totalInvAmount, //invested amount
+      totalInterestEarned: totalInterestEarned, // interest gained
+      totalTaxPaid: totalTaxPaid, // tax paid
     };
     invResults.push(dataPoint);
   }
 
+  /*if the tax is not annual, the last dataPoint is submitted to tax*/
   if (!invInputs.isAnnualTaxChecked) {
-    const tax = calcTax(totalInterest);
-    totalInterest -= tax;
-    invResults[invResults.length - 1].dataTax = tax;
-    invResults[invResults.length - 1].dataInterest = totalInterest;
-  } else {
-    totalTax = parseFloat(invResults[invResults.length - 1].dataTax);
+    const tax = calcTax(totalInterestEarned);
+    invResults[invResults.length - 1].totalTaxPaid = tax;
+    invResults[invResults.length - 1].totalInterestEarned =
+      totalInterestEarned -= tax;
   }
 };
 
@@ -82,10 +81,3 @@ function runProgram() {
 }
 
 document.addEventListener("keypress", runProgram);
-
-export { invResults };
-
-/*
-
-
-*/
