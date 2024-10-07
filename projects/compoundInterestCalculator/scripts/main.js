@@ -27,7 +27,7 @@ const validateInvInputs = () => {
   if (isNaN(invInputs.initInv)) invInputs.initInv = 0;
   if (isNaN(invInputs.yield)) invInputs.yield = 0;
   if (isNaN(invInputs.yearlyCont)) invInputs.yearlyCont = 0;
-  if (isNaN(invInputs.taxRate)) invInputs.taxRate = 0;
+  if (isNaN(invInputs.taxRate) || invInputs.taxRate > 1 || invInputs.taxRate < 0) invInputs.taxRate = 0;
 };
 
 
@@ -35,7 +35,7 @@ export let invResults; // Empty array for datapoints
 
 /* */
 const calcTax = (growth) => {
-  return invInputs.taxRate === 1 ? 0 : growth * invInputs.taxRate;
+  return growth * invInputs.taxRate;
 };
 
 /* */
