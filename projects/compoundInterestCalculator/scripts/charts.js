@@ -1,8 +1,4 @@
-import { invResults } from "./main.js";
-let canvasElement = document.getElementById("canvasChart");
-let pieCanvasElement = document.getElementById("pieChart");
-
-let barChartCfg = {
+export let barChartCfg = {
   type: "bar",
   data: {
     datasets: [
@@ -56,7 +52,7 @@ let barChartCfg = {
   },
 };
 
-let pieChartCfg = {
+export let pieChartCfg = {
   type: "doughnut",
   data: {
     datasets: [
@@ -72,39 +68,3 @@ let pieChartCfg = {
     labels: ["Investment", "Interest", "Tax"],
   },
 };
-
-let chart = new Chart(canvasElement, barChartCfg);
-let pieChart = new Chart(pieCanvasElement, pieChartCfg);
-
-const setBarChartData = (data) => {
-  chart.data.labels = data.map((dp) => dp.dataYear);
-  chart.data.datasets[0].data = data.map((dp) => parseFloat(dp.dataValue));
-  chart.data.datasets[1].data = data.map((dp) => parseFloat(dp.dataInterest));
-  chart.data.datasets[2].data = data.map((dp) => parseFloat(dp.dataTax));
-  chart.update();
-};
-
-const setPieChartData = (data) => {
-  pieChart.data.datasets[0].data = data;
-  pieChart.update();
-};
-
-const populatePieChart = () => {
-  let totalInvestment = parseFloat(invResults[invResults.length - 1].dataValue);
-
-  let totalInterest = parseFloat(
-    invResults[invResults.length - 1].dataInterest
-  );
-
-  let totalTax = 0;
-
-  const totalReturn = Math.floor(totalInterest + totalInvestment - totalTax);
-  document.getElementById(
-    "totalReturn"
-  ).innerHTML = `Total investment: ${totalReturn} 💰`;
-
-  setPieChartData([totalInvestment, totalInterest, totalTax]);
-  setBarChartData(invResults);
-};
-
-document.addEventListener("keypress", populatePieChart);

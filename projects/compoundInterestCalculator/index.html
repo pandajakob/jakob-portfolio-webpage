@@ -22,8 +22,8 @@
                 </div>
 
                 <div class="gridItem">
-                    <label for="monthlyContribution">Monthly contribution:</label><br>
-                    <input type="number" id="monthlyContribution" name="monthlyContribution" value="0" placeholder="$"">
+                    <label for="monthlyCont">Monthly contribution:</label><br>
+                    <input type="number" id="monthlyCont" name="monthlyCont" value="0" placeholder="$"">
                     <label class=" unit">💰</label>
                 </div>
                 <div class="gridItem">
@@ -42,7 +42,7 @@
                     <label for="annualTax" class="unit"> Tax annually: </label>
                     <input type="checkbox" id="annualTax" name="annualTax"><br>
 
-                    <input type="number" id="taxRate" name="taxRate" min="0" max="100" value="0" placeholder="%">
+                    <input type="number" id="taxRate" name="taxRate" min="0" max="101" value="0" placeholder="%">
                     <label class="unit"> % </label>
 
                 </div>
@@ -88,8 +88,7 @@
 
     </main>
     <script type="module" src='./scripts/main.js'> </script>
-    <script type="module" src="./scripts/charts.js"> </script>
-    <script type="module" src="./scripts/table.js"> </script>
+    <script type="module" src="./scripts/displayResults.js"> </script>
     <script type="module" src="./scripts/animations.js"> </script>
 
 

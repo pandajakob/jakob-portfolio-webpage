@@ -2,7 +2,7 @@
 const resultsTableElem = document.getElementById("resultsTable"),
   timeHorizonInput = document.getElementById("timeHorizon"),
   initInvInput = document.getElementById("initInv"),
-  monthlyContributionInput = document.getElementById("monthlyContribution"),
+  monthlyContInput = document.getElementById("monthlyCont"),
   yieldInput = document.getElementById("yield"),
   annualTaxCheckbox = document.getElementById("annualTax"),
   taxRateInput = document.getElementById("taxRate");
@@ -15,11 +15,22 @@ const setInvInputs = () => {
     timeHorizon: parseInt(timeHorizonInput.value),
     initInv: parseInt(initInvInput.value),
     yield: parseFloat(yieldInput.value) / 100 + 1,
-    yearlyContribution: parseFloat(monthlyContributionInput.value) * 12,
+    yearlyCont: parseFloat(monthlyContInput.value) * 12,
     taxRate: parseFloat(taxRateInput.value) / 100,
     isAnnualTaxChecked: annualTaxCheckbox.checked,
   };
+  console.log("inputs", invInputs);
 };
+
+const validateInvInputs = () => {
+  if (isNaN(invInputs.timeHorizon) || invInputs.timeHorizon < 1) invInputs.timeHorizon = 1;
+  if (isNaN(invInputs.initInv)) invInputs.initInv = 0;
+  if (isNaN(invInputs.yield)) invInputs.yield = 0;
+  if (isNaN(invInputs.yearlyCont)) invInputs.yearlyCont = 0;
+  if (isNaN(invInputs.taxRate)) invInputs.taxRate = 0;
+};
+
+
 export let invResults; // Empty array for datapoints
 
 /* */
@@ -33,13 +44,13 @@ const calcGrowth = (investment) => {
 };
 
 // populates the dataPoints with calculated data for each year
-const calcInvestment = () => {
+const simulateInvestment = () => {
   invResults = []; // Resets investment results.
 
   /* total value of inv. Starting from the initial 
    investment plus yearly contribution as no matter the time
    horizon and yield, this will always be calculated */
-  let totalInvAmount = invInputs.initInv;
+  let totalInvAmount = invInputs.initInv + invInputs.yearlyCont;
   let totalInterestEarned = 0; // holds total amount of interest gained.
   let totalTaxPaid = 0; // holds total amount of tax paid.
 
@@ -55,29 +66,32 @@ const calcInvestment = () => {
     }
 
     totalInterestEarned += growth; // adds the growth of the year
-    totalInvAmount += invInputs.yearlyContribution;
+    /*we dont want to add the yearly contribution twice, the first year*/
+    i < 1 ? (totalInvAmount += invInputs.yearlyCont) : 0;
 
     const dataPoint = {
-      year: `${i}`, // year
-      totalInvAmount: totalInvAmount, //invested amount
-      totalInterestEarned: totalInterestEarned, // interest gained
-      totalTaxPaid: totalTaxPaid, // tax paid
+      year: `${i}`, // year of investment
+      totalInvAmount: totalInvAmount, // total invested amoun
+      totalInterestEarned: totalInterestEarned, // total interest earned
+      totalTaxPaid: totalTaxPaid, // total tax paid
     };
+
     invResults.push(dataPoint);
   }
 
   /*if the tax is not annual, the last dataPoint is submitted to tax*/
   if (!invInputs.isAnnualTaxChecked) {
     const tax = calcTax(totalInterestEarned);
-    invResults[invResults.length - 1].totalTaxPaid = tax;
+    invResults[invResults.length - 1].totalTaxPaid = tax; // updates tax
     invResults[invResults.length - 1].totalInterestEarned =
-      totalInterestEarned -= tax;
+      totalInterestEarned -= tax; // subtracts tax from interest earned
   }
 };
 
 function runProgram() {
   setInvInputs();
-  calcInvestment();
+  validateInvInputs();
+  simulateInvestment();
 }
 
 document.addEventListener("keypress", runProgram);
